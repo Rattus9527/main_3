@@ -1,8 +1,27 @@
 import { useState } from "react";
+import MobileScene from "./components/MobileScene";
+import MainScene from "./components/MainScene";
 
 function App() {
-  const [count, setCount] = useState(0);
-  return <div>123</div>;
+  const [windowState, changeState] = useState(true);
+  window.addEventListener("load", () => {
+    if (window.innerHeight <= 640) {
+      changeState(false);
+    }
+  });
+  window.addEventListener("resize", (e) => {
+    if (window.innerHeight <= 640) {
+      changeState(false);
+    } else {
+      changeState(true);
+    }
+  });
+  return (
+    <>
+      <MobileScene></MobileScene>
+      <MainScene windowState={windowState}></MainScene>
+    </>
+  );
 }
 
 export default App;

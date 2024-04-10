@@ -1,0 +1,397 @@
+@import "./reset";
+@import "./variable";
+@import "./mixin";
+
+/* font */
+@font-face {
+  font-family: Cubic11;
+  src: url(../font/Cubic_11_1.100_R.woff);
+}
+body {
+  background-color: $main-bg;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+li,
+a,
+p,
+span {
+  font-family: Cubic11, sans-serif;
+  line-height: 1.8;
+  color: $main-text;
+}
+.mobile {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: $main-bg;
+  img {
+    width: 60%;
+  }
+  @include mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+main {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  overflow-y: scroll;
+  transition: 1s;
+}
+.small-main {
+  display: block;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  max-width: 1320px;
+  margin: 30px auto;
+  padding: 0 60px;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 0;
+  background-color: $main-bg;
+  cursor: pointer;
+  p {
+    position: absolute;
+  }
+}
+.btn-list {
+  .btn {
+    margin-bottom: 10px;
+  }
+}
+.text-area {
+  position: relative;
+  flex-shrink: 0;
+  max-width: 450px;
+  height: 640px;
+  padding: 20px 40px;
+  background-image: url("/UI/sen_normal.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  p {
+    margin: 20px 0;
+    font-size: 1.1rem;
+  }
+}
+.text {
+  display: block;
+  animation: appear 1s ease-in;
+}
+.text-box {
+  width: 370px;
+  max-height: 520px;
+  overflow-y: scroll;
+}
+.text-box::-webkit-scrollbar {
+  display: none;
+}
+.main-btn {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  animation: appear 1s ease-in;
+  img {
+    width: 150px;
+  }
+}
+.mainbtn-group {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  img {
+    width: 120px;
+  }
+}
+.img-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 500px;
+  img {
+    width: 100%;
+  }
+}
+.btn-group {
+  display: flex;
+  justify-content: end;
+  animation: appear 1s ease-in;
+}
+.log {
+  display: block;
+  position: absolute;
+  left: 10%;
+  top: 5%;
+  width: 80%;
+  height: 90vh;
+  padding: 40px 48px;
+  background-color: $main-text;
+  overflow-y: scroll;
+  p {
+    color: $main-bg;
+    margin: 10px 0;
+  }
+  &-btn {
+    align-self: start;
+  }
+  hr {
+    color: $main-bg;
+  }
+}
+.log::-webkit-scrollbar {
+  display: none;
+}
+.blood {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/EP3/explosion.gif");
+  background-size: cover;
+  p {
+    display: block;
+    width: 800px;
+    color: #fff;
+  }
+  span {
+    color: #fff;
+  }
+  .shake {
+    display: inline-block;
+  }
+}
+.darkness {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  p {
+    color: #fff;
+  }
+}
+.battle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: scroll;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  .container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background-color: #1c1c17;
+    background-image: url(/BattleScene/BATTLE_base1.png);
+    background-size: cover;
+  }
+  img {
+    position: absolute;
+  }
+  &-ui {
+    z-index: 3;
+    width: 800px;
+  }
+  .down {
+    top: 0;
+  }
+  &-rule {
+    left: 0;
+    top: 340px;
+    z-index: 2;
+    width: 280px;
+  }
+  &-ship {
+    left: 0;
+    top: 180px;
+    width: 300px;
+  }
+  &-monstername {
+    left: 5px;
+    top: 5px;
+    width: 350px;
+  }
+  &-human {
+    left: 0;
+    top: 140px;
+    z-index: 1;
+    width: 180px;
+  }
+  .monster {
+    right: 30px;
+    top: 80px;
+    width: 680px;
+  }
+  .battle-name {
+    position: absolute;
+    left: 85px;
+    top: 37px;
+    z-index: 5;
+    color: #fff;
+  }
+  .btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 20px;
+    top: 427px;
+    z-index: 7;
+    width: 185px;
+    height: 45px;
+    background-color: #1c1c17;
+    border: 1px solid #fff;
+    p {
+      color: #fff;
+      font-size: 24px;
+    }
+  }
+}
+.talk-effect {
+  opacity: 0.3;
+  animation: talk 10s linear;
+  p {
+    color: #fff;
+  }
+}
+.crystal {
+  animation: crystal 1s infinite;
+  color: #519585;
+  opacity: 1;
+}
+
+.hint {
+  font-weight: 800;
+  cursor: pointer;
+  &:hover {
+    text-shadow: 0 0 3px #fff;
+  }
+}
+.clue {
+  display: none;
+}
+.btn-show {
+  display: flex;
+  animation: appear 1s ease-in;
+}
+.show {
+  display: block;
+  animation: appear 1s ease-in;
+}
+.special-animation {
+  color: #723030;
+  animation: turn 6s ease-in;
+}
+.dark-mode {
+  background-color: $dark-bg;
+  p {
+    color: $dark-text;
+  }
+  .text-area {
+    background-image: url("/UI/sen_BW_off.png");
+  }
+  .btn {
+    background-color: $dark-bg;
+  }
+}
+.darker-mode {
+  background-color: #000;
+  p {
+    color: #fff;
+  }
+  .text-area {
+    background-image: url("/UI/sen_BW.png");
+  }
+  .btn {
+    background-color: #000;
+  }
+}
+.blood-scene {
+  p {
+    color: #723030;
+  }
+  .text-area {
+    background-image: url("/UI/sen_blood.png");
+  }
+}
+.hidden {
+  display: none;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes turn {
+  0% {
+    opacity: 0;
+    color: $main-text;
+  }
+  15% {
+    opacity: 1;
+    color: $main-text;
+  }
+  100% {
+    color: #723030;
+  }
+}
+@keyframes talk {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+@keyframes crystal {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}

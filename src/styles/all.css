@@ -1,0 +1,574 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.container {
+  /* 設計稿的網格系統中，一個列寬是 60px */
+  /* 列與列之間的間隔寬度為 20px */
+  /* PC版本 */
+  /* max-width 960px = 60px*12 + 20px*11 + 10px*2(左右兩邊推gutter 的一半)*/
+  max-width: 960px; /* 共 960px */
+  margin: 0 auto; /*垂直置中*/
+  padding: 0 10px; /*gutter的一半= 20/2 =10 px*/
+  /* Pad 版*/
+}
+
+/* font */
+@font-face {
+  font-family: Cubic11;
+  src: url(../font/Cubic_11_1.100_R.woff);
+}
+body {
+  background-color: #babe7c;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+li,
+a,
+p,
+span {
+  font-family: Cubic11, sans-serif;
+  line-height: 1.8;
+  color: #2f2d22;
+}
+
+.mobile {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: #babe7c;
+}
+.mobile img {
+  width: 60%;
+}
+@media (max-width: 768px) {
+  .mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  overflow-y: scroll;
+  transition: 1s;
+}
+
+.small-main {
+  display: block;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  max-width: 1320px;
+  margin: 30px auto;
+  padding: 0 60px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 0;
+  background-color: #babe7c;
+  cursor: pointer;
+}
+.btn p {
+  position: absolute;
+}
+
+.btn-list .btn {
+  margin-bottom: 10px;
+}
+
+.text-area {
+  position: relative;
+  flex-shrink: 0;
+  max-width: 450px;
+  height: 640px;
+  padding: 20px 40px;
+  background-image: url("/UI/sen_normal.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.text-area p {
+  margin: 20px 0;
+  font-size: 1.1rem;
+}
+
+.text {
+  display: block;
+  animation: appear 1s ease-in;
+}
+
+.text-box {
+  width: 370px;
+  max-height: 520px;
+  overflow-y: scroll;
+}
+
+.text-box::-webkit-scrollbar {
+  display: none;
+}
+
+.main-btn {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  animation: appear 1s ease-in;
+}
+.main-btn img {
+  width: 150px;
+}
+
+.mainbtn-group {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
+.mainbtn-group img {
+  width: 120px;
+}
+
+.img-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 500px;
+}
+.img-area img {
+  width: 100%;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: end;
+  animation: appear 1s ease-in;
+}
+
+.log {
+  display: block;
+  position: absolute;
+  left: 10%;
+  top: 5%;
+  width: 80%;
+  height: 90vh;
+  padding: 40px 48px;
+  background-color: #2f2d22;
+  overflow-y: scroll;
+}
+.log p {
+  color: #babe7c;
+  margin: 10px 0;
+}
+.log-btn {
+  align-self: start;
+}
+.log hr {
+  color: #babe7c;
+}
+
+.log::-webkit-scrollbar {
+  display: none;
+}
+
+.blood {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/EP3/explosion.gif");
+  background-size: cover;
+}
+.blood p {
+  display: block;
+  width: 800px;
+  color: #fff;
+}
+.blood span {
+  color: #fff;
+}
+.blood .shake {
+  display: inline-block;
+}
+
+.darkness {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+.darkness p {
+  color: #fff;
+}
+
+.battle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: scroll;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+.battle .container {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  background-color: #1c1c17;
+  background-image: url(/BattleScene/BATTLE_base1.png);
+  background-size: cover;
+}
+.battle img {
+  position: absolute;
+}
+.battle-ui {
+  z-index: 3;
+  width: 800px;
+}
+.battle .down {
+  top: 0;
+}
+.battle-rule {
+  left: 0;
+  top: 340px;
+  z-index: 2;
+  width: 280px;
+}
+.battle-ship {
+  left: 0;
+  top: 180px;
+  width: 300px;
+}
+.battle-monstername {
+  left: 5px;
+  top: 5px;
+  width: 350px;
+}
+.battle-human {
+  left: 0;
+  top: 140px;
+  z-index: 1;
+  width: 180px;
+}
+.battle .monster {
+  right: 30px;
+  top: 80px;
+  width: 680px;
+}
+.battle .battle-name {
+  position: absolute;
+  left: 85px;
+  top: 37px;
+  z-index: 5;
+  color: #fff;
+}
+.battle .btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 20px;
+  top: 427px;
+  z-index: 7;
+  width: 185px;
+  height: 45px;
+  background-color: #1c1c17;
+  border: 1px solid #fff;
+}
+.battle .btn p {
+  color: #fff;
+  font-size: 24px;
+}
+
+.talk-effect {
+  opacity: 0.3;
+  animation: talk 10s linear;
+}
+.talk-effect p {
+  color: #fff;
+}
+
+.crystal {
+  animation: crystal 1s infinite;
+  color: #519585;
+  opacity: 1;
+}
+
+.hint {
+  font-weight: 800;
+  cursor: pointer;
+}
+.hint:hover {
+  text-shadow: 0 0 3px #fff;
+}
+
+.clue {
+  display: none;
+}
+
+.btn-show {
+  display: flex;
+  animation: appear 1s ease-in;
+}
+
+.show {
+  display: block;
+  animation: appear 1s ease-in;
+}
+
+.special-animation {
+  color: #723030;
+  animation: turn 6s ease-in;
+}
+
+.dark-mode {
+  background-color: #19343a;
+}
+.dark-mode p {
+  color: #7d825a;
+}
+.dark-mode .text-area {
+  background-image: url("/UI/sen_BW_off.png");
+}
+.dark-mode .btn {
+  background-color: #19343a;
+}
+
+.darker-mode {
+  background-color: #000;
+}
+.darker-mode p {
+  color: #fff;
+}
+.darker-mode .text-area {
+  background-image: url("/UI/sen_BW.png");
+}
+.darker-mode .btn {
+  background-color: #000;
+}
+
+.blood-scene p {
+  color: #723030;
+}
+.blood-scene .text-area {
+  background-image: url("/UI/sen_blood.png");
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes turn {
+  0% {
+    opacity: 0;
+    color: #2f2d22;
+  }
+  15% {
+    opacity: 1;
+    color: #2f2d22;
+  }
+  100% {
+    color: #723030;
+  }
+}
+@keyframes talk {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+@keyframes crystal {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=all.css.map */
