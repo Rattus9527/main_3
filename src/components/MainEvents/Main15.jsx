@@ -2,11 +2,16 @@ import { useState } from "react";
 import mainImg15_1 from "/EP3/3-15-1.png";
 import mainImg15_2 from "/EP3/3-15-2.png";
 import btnImg from "/UI/btn_sen_normal.png";
+import { useDispatch } from "react-redux";
+import { setImage } from "../../../redux/stateSlice/stateSlice";
+import { useNavigate } from "react-router-dom";
 
 function Main15() {
   const [textState, setTextState] = useState(0);
   const [imgState, setImageState] = useState({ img1: false, img2: false });
   const [hintState, setHintState] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function showText() {
     setTextState((prev) => prev + 1);
@@ -79,7 +84,14 @@ function Main15() {
         <br />
         切半、移動、三角函數，呃、最後的那個詞是什麼鬼？
       </p>
-      <button className={textState > 2 ? "btn main-btn" : "hidden"}>
+      <button
+        className={textState > 2 ? "btn main-btn" : "hidden"}
+        onClick={() => {
+          setImageState({ img1: false, img2: false });
+          dispatch(setImage(14));
+          navigate("/16");
+        }}
+      >
         <img src={btnImg} alt="" />
         <p>繼續前進</p>
       </button>

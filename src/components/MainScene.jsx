@@ -23,6 +23,13 @@ import Main13_4 from "./MainEvents/Main13_4";
 import Main14 from "./MainEvents/Main14";
 import Main14_2 from "./MainEvents/Main14_2";
 import Main15 from "./MainEvents/Main15";
+import Main16 from "./MainEvents/Main16";
+import Main16_1 from "./MainEvents/Main16_1";
+import Main16_2 from "./MainEvents/Main16_2";
+import Main16_3 from "./MainEvents/Main16_3";
+import Main16_4 from "./MainEvents/Main16_4";
+import Main17 from "./MainEvents/Main17";
+import Main18 from "./MainEvents/Main18";
 //UI components
 import SideBtn from "./SideBtn";
 import LogArea from "./LogArea";
@@ -97,6 +104,13 @@ function MainScene({ windowState }) {
               />
               <Route path="/14_2" element={<Main14_2 />} />
               <Route path="/15" element={<Main15 />} />
+              <Route path="/16" element={<Main16 />} />
+              <Route path="/16_1" element={<Main16_1 />} />
+              <Route path="/16_2" element={<Main16_2 />} />
+              <Route path="/16_3" element={<Main16_3 />} />
+              <Route path="/16_4" element={<Main16_4 />} />
+              <Route path="/17" element={<Main17 />} />
+              <Route path="/18" element={<Main18 />} />
             </Routes>
           </HashRouter>
         </div>

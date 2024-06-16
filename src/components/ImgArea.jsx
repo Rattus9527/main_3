@@ -20,6 +20,9 @@ import mainImg9_2 from "/EP3/3-9.png";
 import mainImg10 from "/EP3/3-10.png";
 import mainImg12 from "/EP3/3-12.png";
 import mainImg15 from "/EP3/3-15.png";
+import mainImg16 from "/EP3/3-16.png";
+import mainImg17 from "/EP3/3-17.png";
+import mainImg20 from "/EP3/3-20.png";
 import { useSelector } from "react-redux";
 
 const imgList = [
@@ -39,6 +42,9 @@ const imgList = [
   mainImg10,
   mainImg12,
   mainImg15,
+  mainImg16,
+  mainImg17,
+  mainImg20,
 ];
 function ImgArea() {
   const mainState = useSelector((state) => state.state.main);

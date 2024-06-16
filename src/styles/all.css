@@ -627,6 +627,11 @@ main {
   animation: slide2 1s ease-in;
 }
 
+.shine {
+  color: #fff;
+  text-shadow: 0px 0px 3px #fff;
+}
+
 @keyframes appear {
   0% {
     opacity: 0;
