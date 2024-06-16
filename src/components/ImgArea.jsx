@@ -14,6 +14,13 @@ import mainImg5 from "/EP3/3-5.png";
 import mainImg6 from "/EP3/3-6.png";
 import mainImgFrame from "/UI/imgFrame-BW.png";
 import mainImg7 from "/EP3/3-7.gif";
+import mainImg8 from "/EP3/3-8OFF.gif";
+import mainImg9_1 from "/EP3/3-8.png";
+import mainImg9_2 from "/EP3/3-9.png";
+import mainImg10 from "/EP3/3-10.png";
+import mainImg12 from "/EP3/3-12.png";
+import mainImg15 from "/EP3/3-15.png";
+import { useSelector } from "react-redux";
 
 const imgList = [
   mainImg1,
@@ -26,9 +33,17 @@ const imgList = [
   mainImg6,
   mainImgFrame,
   mainImg7,
+  mainImg8,
+  mainImg9_1,
+  mainImg9_2,
+  mainImg10,
+  mainImg12,
+  mainImg15,
 ];
-function ImgArea({ imgState, mainPageState }) {
-  const currentImg = imgList.filter((el, i) => i === imgState);
+function ImgArea() {
+  const mainState = useSelector((state) => state.state.main);
+  const imgState = useSelector((state) => state.state.image);
+  const currentImg = imgList.filter((_, i) => i === imgState);
   return (
     <div className="img-area">
       <img src={currentImg[0]} alt="" className="sence" />
@@ -36,11 +51,11 @@ function ImgArea({ imgState, mainPageState }) {
         <button className="btn">
           <img
             src={
-              mainPageState === "normal"
+              mainState === "normal"
                 ? btnBg
-                : mainPageState === "off"
+                : mainState === "off"
                 ? btnBgOff
-                : mainPageState === "dark"
+                : mainState === "dark"
                 ? btnBgDark
                 : btnBgBlood
             }
@@ -51,11 +66,11 @@ function ImgArea({ imgState, mainPageState }) {
         <button className="btn">
           <img
             src={
-              mainPageState === "normal"
+              mainState === "normal"
                 ? btnBg
-                : mainPageState === "off"
+                : mainState === "off"
                 ? btnBgOff
-                : mainPageState === "dark"
+                : mainState === "dark"
                 ? btnBgDark
                 : btnBgBlood
             }

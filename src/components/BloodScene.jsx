@@ -1,12 +1,14 @@
+import { useDispatch, useSelector } from "react-redux";
 import { ShakeLittle } from "reshake";
+import {
+  setBloodState,
+  setImage,
+  setMainState,
+} from "../../redux/stateSlice/stateSlice";
 
-function BloodScene({
-  bloodState,
-  showBloodScene,
-  changeMainPageState,
-  updateImg,
-  showMain3Btn,
-}) {
+function BloodScene({ showMain3Btn }) {
+  const isShow = useSelector((state) => state.state.blood);
+  const dispatch = useDispatch();
   const shakeTextStyle = {
     fontFamily: "Cubic11",
     display: "inline-block",
@@ -14,12 +16,12 @@ function BloodScene({
   };
   return (
     <section
-      className={bloodState ? "blood" : "hidden"}
+      className={isShow ? "blood" : "hidden"}
       onClick={() => {
-        showBloodScene(false);
-        changeMainPageState("blood");
+        dispatch(setBloodState());
+        dispatch(setMainState("blood"));
         showMain3Btn(true);
-        updateImg(5);
+        dispatch(setImage(5));
       }}
     >
       <div>

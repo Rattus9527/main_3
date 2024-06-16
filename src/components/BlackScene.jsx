@@ -1,39 +1,40 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setBlackState } from "../../redux/stateSlice/stateSlice";
 
-function TypingEffect({ text, closeBlackScene, blackState }) {
+function TypingEffect({ text }) {
+  const blackState = useSelector((state) => state.state.black);
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, updateIndex] = useState(0);
-  useEffect(() => {
-    setDisplayText("");
-    updateIndex(0);
-  }, [blackState]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setTimeout(
-      () => {
-        if (currentIndex < text.length) {
-          setDisplayText(displayText + text[currentIndex]);
-          updateIndex(currentIndex + 1);
-        }
-      },
-      currentIndex < 27 ? 200 : 1000
-    );
-    if (currentIndex == text.length) {
-      setTimeout(() => {
-        closeBlackScene();
-      }, 2000);
+    if (blackState) {
+      setTimeout(
+        () => {
+          if (currentIndex < text.length) {
+            setDisplayText(displayText + text[currentIndex]);
+            updateIndex(currentIndex + 1);
+          }
+        },
+        currentIndex < 27 ? 200 : 1000
+      );
+      if (currentIndex == text.length) {
+        setTimeout(() => {
+          dispatch(setBlackState(false));
+        }, 2000);
+      }
     }
-  }, [currentIndex]);
+  }, [currentIndex, blackState]);
   return <p>{displayText}</p>;
 }
 
-function BlackScene({ blackState, closeBlackScene }) {
+function BlackScene() {
+  const blackState = useSelector((state) => state.state.black);
   return (
     <section className={blackState ? "darkness" : "hidden"}>
       <TypingEffect
         text={"物體破水而出的聲音傳進腦子，巨大的牆壁從四周猛地竄起，然後"}
-        closeBlackScene={closeBlackScene}
-        blackState={blackState}
       ></TypingEffect>
     </section>
   );

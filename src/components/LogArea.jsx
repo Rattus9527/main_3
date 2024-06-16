@@ -1,8 +1,18 @@
-function LogArea({ logAreaState, showLog, log }) {
-  const logList = log.map((el) => <p>{el}</p>);
+import { useSelector } from "react-redux";
+import closeIcon from "/UI/cross.png";
+
+function LogArea({ logAreaState, showLog }) {
+  const log = useSelector((state) => state.log.log);
   return (
-    <div className={logAreaState ? "log" : "hidden"} onClick={showLog}>
-      {logList}
+    <div className={logAreaState ? "log" : "hidden"}>
+      <button className="close" onClick={showLog}>
+        <img src={closeIcon} alt="" />
+      </button>
+      <div>
+        {log.map((el, i) => (
+          <p key={i}>{el}</p>
+        ))}
+      </div>
     </div>
   );
 }

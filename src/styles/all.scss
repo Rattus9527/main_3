@@ -90,9 +90,12 @@ main {
 }
 .text {
   display: block;
-  animation: appear 1s ease-in;
+  animation: appear 1.5s ease-out;
 }
 .text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
   width: 370px;
   max-height: 520px;
   overflow-y: scroll;
@@ -134,7 +137,9 @@ main {
   animation: appear 1s ease-in;
 }
 .log {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   position: absolute;
   left: 10%;
   top: 5%;
@@ -142,7 +147,6 @@ main {
   height: 90vh;
   padding: 40px 48px;
   background-color: $main-text;
-  overflow-y: scroll;
   p {
     color: $main-bg;
     margin: 10px 0;
@@ -153,8 +157,17 @@ main {
   hr {
     color: $main-bg;
   }
+  .close {
+    align-self: flex-end;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  div {
+    overflow-y: scroll;
+  }
 }
-.log::-webkit-scrollbar {
+.log div::-webkit-scrollbar {
   display: none;
 }
 .blood {
@@ -223,6 +236,20 @@ main {
     z-index: 3;
     width: 800px;
   }
+  .hp {
+    position: absolute;
+    top: 19px;
+    left: 580px;
+    z-index: 5;
+    color: #1c1c1c;
+  }
+  .speed {
+    position: absolute;
+    top: 57px;
+    left: 580px;
+    z-index: 5;
+    color: #1c1c1c;
+  }
   .down {
     top: 0;
   }
@@ -253,10 +280,37 @@ main {
     top: 80px;
     width: 680px;
   }
+  .rule {
+    position: absolute;
+    left: 40px;
+    top: 410px;
+    z-index: 10;
+    width: 500px;
+    height: 170px;
+    padding: 10px;
+    overflow-y: scroll;
+    .hint {
+      color: #49513e;
+    }
+    p {
+      color: #49513e;
+    }
+    hr {
+      color: #49513e;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
   .battle-name {
     position: absolute;
-    left: 85px;
-    top: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+    left: 30px;
+    top: 25px;
     z-index: 5;
     color: #fff;
   }
@@ -271,29 +325,59 @@ main {
     width: 185px;
     height: 45px;
     background-color: #1c1c17;
-    border: 1px solid #fff;
     p {
-      color: #fff;
-      font-size: 24px;
+      color: #49513e;
+      font-size: 20px;
     }
+    &.down {
+      top: 532px;
+    }
+  }
+}
+.crab-type {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  text-align: center;
+  animation: appear 1s ease-in;
+  p {
+    color: #fff;
+  }
+  .hint {
+    color: #fff;
   }
 }
 .talk-effect {
   opacity: 0.3;
   animation: talk 10s linear;
-  p {
-    color: #fff;
-  }
+  color: #fff;
 }
 .crystal {
   animation: crystal 1s infinite;
   color: #519585;
   opacity: 1;
 }
+.cave {
+  img {
+    width: 90px;
+  }
+}
 
 .hint {
   font-weight: 800;
   cursor: pointer;
+  &:hover {
+    text-shadow: 0 0 3px #fff;
+  }
+}
+.hint-white {
+  font-weight: 800;
+  cursor: pointer;
+  color: #fff;
   &:hover {
     text-shadow: 0 0 3px #fff;
   }
@@ -349,6 +433,21 @@ main {
   display: none;
 }
 
+.exImg_1 {
+  position: absolute;
+  bottom: 0;
+  left: -210px;
+  width: 200px;
+  animation: slide 1s ease-in;
+}
+.exImg_2 {
+  position: absolute;
+  bottom: 120px;
+  right: -410px;
+  width: 400px;
+  animation: slide2 1s ease-in;
+}
+
 @keyframes appear {
   0% {
     opacity: 0;
@@ -392,6 +491,26 @@ main {
     opacity: 0.8;
   }
   100% {
+    opacity: 1;
+  }
+}
+@keyframes slide {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide2 {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
     opacity: 1;
   }
 }
