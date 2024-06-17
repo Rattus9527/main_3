@@ -39,6 +39,7 @@ import BloodScene from "./BloodScene";
 import BlackScene from "./BlackScene";
 import CrabType from "./CrabType";
 import ShrimpType from "./ShrimpType";
+import BoatScene from "./BoatScene";
 
 function MainScene({ windowState }) {
   const mainState = useSelector((state) => state.state.main);
@@ -125,6 +126,7 @@ function MainScene({ windowState }) {
         shrimpTypeState={shrimpTypeState}
         showShrimpType={showShrimpType}
       />
+      <BoatScene windowState={windowState} />
     </main>
   );
 }

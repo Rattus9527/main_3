@@ -275,10 +275,30 @@ main {
     z-index: 1;
     width: 180px;
   }
-  .monster {
+  .crab {
     right: 30px;
     top: 80px;
     width: 680px;
+  }
+  .crabAngry {
+    right: 30px;
+    top: 80px;
+    width: 680px;
+  }
+  .shrimp {
+    right: 0px;
+    top: 20px;
+    width: 700px;
+  }
+  .shrimpAngry {
+    right: 0px;
+    top: 20px;
+    width: 700px;
+  }
+  .nameless {
+    right: 60px;
+    top: 50px;
+    width: 420px;
   }
   .rule {
     position: absolute;
@@ -364,6 +384,162 @@ main {
 .cave {
   img {
     width: 90px;
+  }
+}
+.boat-scene {
+  position: absolute;
+  overflow: scroll;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 10px 0;
+  background-color: #1c1c1c;
+  animation: appear 1s ease-in;
+  .container {
+    position: relative;
+    width: 1024px;
+    height: 768px;
+    margin: 0 auto;
+  }
+  .text-b {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    z-index: 4;
+    bottom: 25px;
+    overflow: scroll;
+    width: 800px;
+    height: 180px;
+    padding: 10px 20px;
+    p {
+      color: #babe7c;
+    }
+    span {
+      color: #babe7c;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .text-s {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    position: absolute;
+    z-index: 4;
+    bottom: 25px;
+    overflow: scroll;
+    width: 800px;
+    height: 180px;
+    padding: 10px 20px;
+    p {
+      color: #babe7c;
+    }
+    span {
+      color: #babe7c;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+.boat {
+  &-frame {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+  &-table {
+    position: absolute;
+    top: 296px;
+    z-index: 4;
+    cursor: pointer;
+    &:hover {
+      filter: drop-shadow(0 -5px 5px #fff);
+    }
+  }
+  &-book {
+    position: absolute;
+    z-index: 4;
+    left: 100px;
+    top: 420px;
+    cursor: pointer;
+    &:hover {
+      filter: drop-shadow(0 -5px 5px #fff);
+    }
+  }
+  &-chair {
+    position: absolute;
+    z-index: 3;
+    left: 440px;
+    top: 200px;
+    cursor: pointer;
+    &:hover {
+      filter: drop-shadow(0 0 8px #fff);
+    }
+  }
+  &-paint {
+    position: absolute;
+    z-index: 3;
+    right: 110px;
+    top: 40px;
+    cursor: pointer;
+    &:hover {
+      filter: drop-shadow(-3px 0 5px #fff);
+    }
+  }
+}
+.book {
+  display: flex;
+  position: absolute;
+  z-index: 5;
+  top: 40px;
+  width: 800px;
+  height: 600px;
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 400px;
+    img {
+      left: 0;
+      position: absolute;
+    }
+    .book-text {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 500px;
+      width: 280px;
+    }
+  }
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 400px;
+    border-left: 1px solid #376862;
+    img {
+      position: absolute;
+      right: 0;
+    }
+    .book-text {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 500px;
+      width: 280px;
+    }
   }
 }
 

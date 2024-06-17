@@ -7,7 +7,8 @@ const initialState = {
   blood: false,
   black: false,
   battle: false,
-  battleType: "human",
+  boatScene: false,
+  battleType: "ship",
 };
 
 const stateSlice = createSlice({
@@ -35,6 +36,9 @@ const stateSlice = createSlice({
     setBattleType: (state, action) => {
       state.battleType = action.payload;
     },
+    setBoatSceneState: (state) => {
+      state.boatScene = !state.boatScene;
+    },
   },
 });
 
@@ -46,5 +50,6 @@ export const {
   setBattleState,
   setMonster,
   setBattleType,
+  setBoatSceneState,
 } = stateSlice.actions;
 export default stateSlice.reducer;

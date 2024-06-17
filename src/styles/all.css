@@ -445,10 +445,30 @@ main {
   z-index: 1;
   width: 180px;
 }
-.battle .monster {
+.battle .crab {
   right: 30px;
   top: 80px;
   width: 680px;
+}
+.battle .crabAngry {
+  right: 30px;
+  top: 80px;
+  width: 680px;
+}
+.battle .shrimp {
+  right: 0px;
+  top: 20px;
+  width: 700px;
+}
+.battle .shrimpAngry {
+  right: 0px;
+  top: 20px;
+  width: 700px;
+}
+.battle .nameless {
+  right: 60px;
+  top: 50px;
+  width: 420px;
 }
 .battle .rule {
   position: absolute;
@@ -536,6 +556,163 @@ main {
 
 .cave img {
   width: 90px;
+}
+
+.boat-scene {
+  position: absolute;
+  overflow: scroll;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 10px 0;
+  background-color: #1c1c1c;
+  animation: appear 1s ease-in;
+}
+.boat-scene .container {
+  position: relative;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+}
+.boat-scene .text-b {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  z-index: 4;
+  bottom: 25px;
+  overflow: scroll;
+  width: 800px;
+  height: 180px;
+  padding: 10px 20px;
+}
+.boat-scene .text-b p {
+  color: #babe7c;
+}
+.boat-scene .text-b span {
+  color: #babe7c;
+}
+.boat-scene .text-b::-webkit-scrollbar {
+  display: none;
+}
+.boat-scene .text-s {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  position: absolute;
+  z-index: 4;
+  bottom: 25px;
+  overflow: scroll;
+  width: 800px;
+  height: 180px;
+  padding: 10px 20px;
+}
+.boat-scene .text-s p {
+  color: #babe7c;
+}
+.boat-scene .text-s span {
+  color: #babe7c;
+}
+.boat-scene .text-s::-webkit-scrollbar {
+  display: none;
+}
+
+.boat-frame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+.boat-table {
+  position: absolute;
+  top: 296px;
+  z-index: 4;
+  cursor: pointer;
+}
+.boat-table:hover {
+  filter: drop-shadow(0 -5px 5px #fff);
+}
+.boat-book {
+  position: absolute;
+  z-index: 4;
+  left: 100px;
+  top: 420px;
+  cursor: pointer;
+}
+.boat-book:hover {
+  filter: drop-shadow(0 -5px 5px #fff);
+}
+.boat-chair {
+  position: absolute;
+  z-index: 3;
+  left: 440px;
+  top: 200px;
+  cursor: pointer;
+}
+.boat-chair:hover {
+  filter: drop-shadow(0 0 8px #fff);
+}
+.boat-paint {
+  position: absolute;
+  z-index: 3;
+  right: 110px;
+  top: 40px;
+  cursor: pointer;
+}
+.boat-paint:hover {
+  filter: drop-shadow(-3px 0 5px #fff);
+}
+
+.book {
+  display: flex;
+  position: absolute;
+  z-index: 5;
+  top: 40px;
+  width: 800px;
+  height: 600px;
+}
+.book .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 400px;
+}
+.book .left img {
+  left: 0;
+  position: absolute;
+}
+.book .left .book-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 500px;
+  width: 280px;
+}
+.book .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 400px;
+  border-left: 1px solid #376862;
+}
+.book .right img {
+  position: absolute;
+  right: 0;
+}
+.book .right .book-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 500px;
+  width: 280px;
 }
 
 .hint {

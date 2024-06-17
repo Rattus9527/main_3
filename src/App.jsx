@@ -10,7 +10,7 @@ function App() {
         changeState(false);
       }
     });
-    window.addEventListener("resize", (e) => {
+    window.addEventListener("resize", () => {
       if (window.innerHeight <= 640) {
         changeState(false);
       } else {

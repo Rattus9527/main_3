@@ -1,8 +1,11 @@
 import { useState } from "react";
 import btnImg from "/UI/btn_sen_normal.png";
+import { useDispatch } from "react-redux";
+import { setBoatSceneState } from "../../../redux/stateSlice/stateSlice";
 
 function Main18() {
   const [textState, setTextState] = useState(0);
+  const dispatch = useDispatch();
 
   function showText() {
     setTextState((prev) => prev + 1);
@@ -33,7 +36,12 @@ function Main18() {
       >
         請使用角色進行攻擊，合計傷害大於230時成功破門。
       </p>
-      <button className={textState > 3 ? "btn main-btn" : "hidden"}>
+      <button
+        className={textState > 3 ? "btn main-btn" : "hidden"}
+        onClick={() => {
+          dispatch(setBoatSceneState());
+        }}
+      >
         <img src={btnImg} alt="" />
         <p>開門進入</p>
       </button>
