@@ -2,10 +2,12 @@ import { useState } from "react";
 import btnImg from "/UI/btn_sen_normal.png";
 import { useDispatch } from "react-redux";
 import { setBoatSceneState } from "../../../redux/stateSlice/stateSlice";
+import { useNavigate } from "react-router-dom";
 
 function Main18() {
   const [textState, setTextState] = useState(0);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function showText() {
     setTextState((prev) => prev + 1);
@@ -40,6 +42,7 @@ function Main18() {
         className={textState > 3 ? "btn main-btn" : "hidden"}
         onClick={() => {
           dispatch(setBoatSceneState());
+          navigate("/18_2");
         }}
       >
         <img src={btnImg} alt="" />

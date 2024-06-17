@@ -13,6 +13,7 @@ import mainImg3_2 from "/EP3/3-3-1.png";
 import mainImg5 from "/EP3/3-5.png";
 import mainImg6 from "/EP3/3-6.png";
 import mainImgFrame from "/UI/imgFrame-BW.png";
+import mainImgFrameOff from "/UI/imgFrame-off.png";
 import mainImg7 from "/EP3/3-7.gif";
 import mainImg8 from "/EP3/3-8OFF.gif";
 import mainImg9_1 from "/EP3/3-8.png";
@@ -45,6 +46,7 @@ const imgList = [
   mainImg16,
   mainImg17,
   mainImg20,
+  mainImgFrameOff,
 ];
 function ImgArea() {
   const mainState = useSelector((state) => state.state.main);

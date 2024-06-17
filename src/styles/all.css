@@ -320,6 +320,9 @@ main {
 .log-btn {
   align-self: start;
 }
+.log-btn img {
+  width: 80px;
+}
 .log hr {
   color: #babe7c;
 }
@@ -729,6 +732,15 @@ main {
   color: #fff;
 }
 .hint-white:hover {
+  text-shadow: 0 0 3px #fff;
+}
+
+.hint-off {
+  font-weight: 800;
+  cursor: pointer;
+  color: #7d825a;
+}
+.hint-off:hover {
   text-shadow: 0 0 3px #fff;
 }
 

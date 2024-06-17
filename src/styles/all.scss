@@ -153,6 +153,9 @@ main {
   }
   &-btn {
     align-self: start;
+    img {
+      width: 80px;
+    }
   }
   hr {
     color: $main-bg;
@@ -554,6 +557,14 @@ main {
   font-weight: 800;
   cursor: pointer;
   color: #fff;
+  &:hover {
+    text-shadow: 0 0 3px #fff;
+  }
+}
+.hint-off {
+  font-weight: 800;
+  cursor: pointer;
+  color: #7d825a;
   &:hover {
     text-shadow: 0 0 3px #fff;
   }
