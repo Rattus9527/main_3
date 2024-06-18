@@ -469,10 +469,6 @@ main {
     }
   }
   .text-s {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 10px;
     position: absolute;
     z-index: 4;
     bottom: 25px;
