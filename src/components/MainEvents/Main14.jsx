@@ -27,7 +27,7 @@ function Main14({ showShrimpType }) {
   return (
     <div className="text-box">
       <p className="text" onAnimationEnd={showText}>
-        再次開闊的視野讓人呼吸都暢快起來，這裡的藍色結晶比先前都要密集，如同灑落漫天的珍珠般熠熠生輝。成簇的晶體從水下一路蔓延向上，像是支撐著天地形成一個巨大的柱體，溢著淡淡的光芒，將整個空間鍍上一層柔和的螢藍。
+        再次開闊的視野讓人呼吸都暢快起來，這裡的藍色結晶比先前都要密集，如同灑落漫天的珍珠般閃爍。成簇的晶體從水下一路蔓延向上，像是支撐著天地形成一個巨大的柱體，溢著淡淡的光芒，將整個空間鍍上一層柔和的螢藍。
       </p>
       <p
         className={textState > 0 ? "text" : "hidden"}
