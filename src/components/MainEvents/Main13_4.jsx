@@ -4,6 +4,13 @@ import btnImg from "/UI/btn_sen_BW.png";
 import { setImage, setMainState } from "../../../redux/stateSlice/stateSlice";
 import { useNavigate } from "react-router-dom";
 import { addLog } from "../../../redux/logSlice/logSlice";
+import {
+  setBronze,
+  setCrystal,
+  setItem,
+  setSliver,
+  setUncrystal,
+} from "../../../redux/itemSlice/itemSlice";
 
 const data = [
   ">[4]",
@@ -20,6 +27,13 @@ function Main13_4() {
   const [textState, setTextState] = useState(0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const item = [
+    "多功能維修套組(15銀/個) x3 - 1回合 能使用1次，並在該回合立即恢復 船隻耐久＋150。",
+    "機械零件(1銀/個) x5",
+    "[索羅爾群島仲裁者] 部件A(20銀/個) x2 - 需要製作圖紙。",
+    "-",
+  ];
 
   return (
     <div className="text-box">
@@ -71,6 +85,11 @@ function Main13_4() {
           dispatch(setImage(15));
           dispatch(setMainState("normal"));
           dispatch(addLog(data));
+          dispatch(setUncrystal(400));
+          dispatch(setCrystal(150));
+          dispatch(setSliver(18));
+          dispatch(setBronze(50));
+          dispatch(setItem(item));
           navigate("/14");
         }}
       >

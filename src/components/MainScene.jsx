@@ -43,10 +43,12 @@ import BlackScene from "./BlackScene";
 import CrabType from "./CrabType";
 import ShrimpType from "./ShrimpType";
 import BoatScene from "./BoatScene";
+import GetItem from "./GetItem";
 
 function MainScene({ windowState }) {
   const mainState = useSelector((state) => state.state.main);
   const [logAreaState, changeLogAreaState] = useState(false);
+  const [itemState, showItem] = useState(false);
   const [main3BtnState, showMain3Btn] = useState(false);
   const [crabTypeState, showCrabType] = useState(false);
   const [shrimpTypeState, showShrimpType] = useState(false);
@@ -74,7 +76,7 @@ function MainScene({ windowState }) {
       style={windowState ? flex : block}
     >
       <div className="container">
-        <SideBtn showLog={showLog}></SideBtn>
+        <SideBtn showLog={showLog} showItem={showItem} />
         <div className="text-area">
           <HashRouter basename="/">
             <Routes>
@@ -133,6 +135,7 @@ function MainScene({ windowState }) {
         showShrimpType={showShrimpType}
       />
       <BoatScene windowState={windowState} />
+      <GetItem itemState={itemState} showItem={showItem} />
     </main>
   );
 }

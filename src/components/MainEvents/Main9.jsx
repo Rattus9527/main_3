@@ -62,7 +62,7 @@ function Main9({ showCrabType }) {
         你從未聽聞過這副模樣的海怪，將近半船高的蟹狀生物揮舞著不成比例地巨大的螯，細長的足部將軀幹高高撐起，殼上成片的藍色晶體肆意生長，難以辨識它原先的形體，看似普通的揮擊都能讓船體發出令人頭皮發麻的巨響。
       </p>
       <p
-        textState={textState > 5 ? "text" : "hidden"}
+        className={textState > 5 ? "text" : "hidden"}
         onAnimationEnd={updateTextState}
       >
         於此同時，後方也傳來了相同的聲響，天知道這個啥都吞的大王八蛋吃了多少這樣的鬼東西，藍色的幽光隨著它們移動而閃爍，將戰鬥的舞台徹底點亮。

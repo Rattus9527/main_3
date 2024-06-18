@@ -114,7 +114,7 @@ function Main15() {
         onClick={() => {
           setImageState({ img1: false, img2: false });
           dispatch(setImage(14));
-          dispatch(addLog(hintState ? hasHint : noHint));
+          dispatch(addLog(hintState ? data.hasHint : data.noHint));
           navigate("/16");
         }}
       >

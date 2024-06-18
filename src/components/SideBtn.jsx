@@ -9,7 +9,7 @@ import itemBtnBw from "/UI/item/treasure-400-bw.png";
 import itemBtnOff from "/UI/item/treasure-400-off.png";
 import { useSelector } from "react-redux";
 
-function SideBtn({ showLog }) {
+function SideBtn({ showLog, showItem }) {
   const mainState = useSelector((state) => state.state.main);
   return (
     <div className="btn-list">
@@ -27,7 +27,12 @@ function SideBtn({ showLog }) {
           alt=""
         />
       </button>
-      <button className="btn log-btn">
+      <button
+        className="btn log-btn"
+        onClick={() => {
+          showItem(true);
+        }}
+      >
         <img
           src={
             mainState === "normal"

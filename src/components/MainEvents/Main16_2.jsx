@@ -4,6 +4,13 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setImage, setMainState } from "../../../redux/stateSlice/stateSlice";
 import { addLog } from "../../../redux/logSlice/logSlice";
+import {
+  setBronze,
+  setCrystal,
+  setItem,
+  setSliver,
+  setUncrystal,
+} from "../../../redux/itemSlice/itemSlice";
 
 const data = [
   ">[Ｚ]",
@@ -15,6 +22,12 @@ const data = [
   "若要靠近，請擲一個（COIN）。",
   "Ｐ－有人踢到了東西，它一路朝著小洞滾去，撞上肉壁後停下，你們走近後發現那是一個被藍色結晶包覆的懷表，「喀。」那花說。",
   "Ｉ／特殊骰－你們湊近了那個洞口，為你們獻唱一路的那個聲音響起，「我永遠愛你，諾亞。」那花說。",
+  "-",
+];
+const item = [
+  "多功能維修套組(15銀/個) x3 - 1回合 能使用1次，並在該回合立即恢復 船隻耐久＋150。",
+  "機械零件(1銀/個) x5",
+  "[索羅爾群島仲裁者] 部件B(20銀/個) x2 - 需要製作圖紙。",
   "-",
 ];
 
@@ -89,6 +102,11 @@ function Main16_2() {
           dispatch(addLog(data));
           dispatch(setImage(16));
           dispatch(setMainState("normal"));
+          dispatch(setSliver(18));
+          dispatch(setBronze(50));
+          dispatch(setUncrystal(400));
+          dispatch(setCrystal(150));
+          dispatch(setItem(item));
           navigate("/17");
         }}
       >

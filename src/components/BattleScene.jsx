@@ -14,6 +14,14 @@ import MonsterShrimpAngry from "/EP3/MONSTERS/3-13-1m.gif";
 import MonsterNameless from "/EP3/MONSTERS/3-14.gif";
 import { useDispatch, useSelector } from "react-redux";
 import { setBattleState } from "../../redux/stateSlice/stateSlice";
+import {
+  setBronze,
+  setCrystal,
+  setGold,
+  setItem,
+  setSliver,
+  setUncrystal,
+} from "../../redux/itemSlice/itemSlice";
 
 function BattleScene({ windowState }) {
   const battleState = useSelector((state) => state.state.battle);
@@ -242,6 +250,79 @@ function BattleScene({ windowState }) {
     ),
   };
 
+  const item = {
+    crab: {
+      uncrystal: 400,
+      crystal: 0,
+      bronze: 0,
+      sliver: 10,
+      gold: 0,
+      item: [
+        "堅硬蟹螯(40銅/個) x4",
+        "石化鯨礦(50銅/個) x5",
+        "鋸緣指虎 x2 -［武器］欄位裝備後，攻擊骰 額外＋80。下回合攻擊骰 再 額外＋20(至多疊加至＋40)。",
+        "-",
+      ],
+    },
+    crabAngry: {
+      uncrystal: 650,
+      crystal: 0,
+      bronze: 0,
+      sliver: 10,
+      gold: 0,
+      item: [
+        "堅硬蟹螯(40銅/個) x4",
+        "石化鯨礦(50銅/個) x5",
+        "鋸緣指虎 x2 -［武器］欄位裝備後，攻擊骰 額外＋80。下回合攻擊骰 再 額外＋20(至多疊加至＋40)。",
+        "閃爍藍光的堅硬甲殼(3銀/個) x4 - 可用於 官方鍛造噗，消耗 1 個可鍛造裝備 1 次。",
+        "-",
+      ],
+    },
+    shrimp: {
+      uncrystal: 400,
+      crystal: 0,
+      bronze: 0,
+      sliver: 10,
+      gold: 0,
+      item: [
+        "結晶化的眼球(40銅/個) x8",
+        "石化鯨礦(50銅/個) x5",
+        "刺脊長棍(1銀30銅/個) x2 - ［武器］欄位裝備後，攻擊骰 額外＋70。下回合攻擊骰 再 額外＋30(至多疊加至＋60)。",
+        "-",
+      ],
+    },
+    shrimpAngry: {
+      uncrystal: 650,
+      crystal: 0,
+      bronze: 0,
+      sliver: 10,
+      gold: 0,
+      item: [
+        "結晶化的眼球(40銅/個) x8",
+        "石化鯨礦(50銅/個) x5",
+        "刺脊長棍(1銀30銅/個) x2 - ［武器］欄位裝備後，攻擊骰 額外＋70。下回合攻擊骰 再 額外＋30(至多疊加至＋60)。",
+        "閃爍藍光的堅硬甲殼(3銀/個) x4 - 可用於 官方鍛造噗，消耗 1 個可鍛造裝備 1 次。",
+        "-",
+      ],
+    },
+    nameless: {
+      uncrystal: 2500,
+      crystal: 0,
+      bronze: 0,
+      sliver: 50,
+      gold: 1,
+      item: [
+        "傑拉爾德的畫像(5銀/幅) x1",
+        "密醫手稿(7銀/份) x1 - 持有後，可在使用 基礎醫療包 時額外恢復 30點血量。",
+        "珠寶飾品(1銀/個) x10",
+        "變異巨鯨油脂(不可販售、交易、拋棄。) x1 - 外型乳白偏黃，香氣四溢，可以向藍晶船廠兌換［不滅明燈］。",
+        "[索羅爾群島仲裁者] 圖紙(15銀/個) x1 - 可依照圖紙自行合成，外觀自訂。需求部件：[索羅爾群島仲裁者] 部件A、[索羅爾群島仲裁者] 部件B。［武器］欄位裝備後，攻擊骰 額外＋100。下回合攻擊骰 再 額外＋10(至多疊加至＋40)。",
+        "海貓(寵物)(不可販售、交易、拋棄。) - 傳說中能為船隻帶來幸運的生物，事實上只是個晚上很愛叫的有璞小貓。每次事件/活動能使喚 1 次，可以擲 3 次獎勵骰，擇一當做結果。",
+        "-",
+      ],
+    },
+  };
+
   const [btn1, btn2] = btnText[monster];
   const { hp, speed } = monsterState[monster];
   const block = {
@@ -277,6 +358,12 @@ function BattleScene({ windowState }) {
           onClick={() => {
             showrule(false);
             dispatch(setBattleState());
+            dispatch(setItem(item[monster].item));
+            dispatch(setCrystal(item[monster].crystal));
+            dispatch(setUncrystal(item[monster].uncrystal));
+            dispatch(setGold(item[monster].gold));
+            dispatch(setSliver(item[monster].sliver));
+            dispatch(setBronze(item[monster].bronze));
           }}
         >
           <p>{btn1}</p>
