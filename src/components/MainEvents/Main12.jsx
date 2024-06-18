@@ -3,6 +3,13 @@ import { useNavigate } from "react-router-dom";
 import btnImg from "/UI/btn_sen_normal.png";
 import { useDispatch } from "react-redux";
 import { setImage, setMainState } from "../../../redux/stateSlice/stateSlice";
+import { addLog } from "../../../redux/logSlice/logSlice";
+
+const data = [
+  "不見天日的平穩航行讓人很難判斷時間的流逝，如果不是眼前出現的分叉路，你一度以為船並沒有在前進。",
+  "廣闊的空間被分成四條不同的道路，小心一點的話勉強能讓你們的船隻通過，黑黝黝的洞口像未知生物張開的大嘴，正耐心等待獵物進入，你們注意到洞口內側有微小的藍光閃爍。",
+  "-",
+];
 
 function Main12() {
   const [textState, showText] = useState(0);
@@ -33,6 +40,7 @@ function Main12() {
           onClick={() => {
             dispatch(setImage(8));
             dispatch(setMainState("dark"));
+            dispatch(addLog(data));
             navigate("/13_1");
           }}
         >
@@ -44,6 +52,7 @@ function Main12() {
           onClick={() => {
             dispatch(setImage(8));
             dispatch(setMainState("dark"));
+            dispatch(addLog(data));
             navigate("/13_2");
           }}
         >
@@ -55,6 +64,7 @@ function Main12() {
           onClick={() => {
             dispatch(setImage(8));
             dispatch(setMainState("dark"));
+            dispatch(addLog(data));
             navigate("/13_3");
           }}
         >
@@ -66,6 +76,7 @@ function Main12() {
           onClick={() => {
             dispatch(setImage(8));
             dispatch(setMainState("dark"));
+            dispatch(addLog(data));
             navigate("/13_4");
           }}
         >

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import btnImg from "/UI/btn_sen_normal.png";
 import { useNavigate } from "react-router-dom";
+import { addLog } from "../../../redux/logSlice/logSlice";
 
 function Main18_2() {
   const data = [
@@ -11,9 +12,11 @@ function Main18_2() {
     "不過數秒那巨大的身影就如溶解般成了一灘不成形的黏稠漿糊，緩緩沒入水裡。",
     "你們在滿地紅藍交錯的狼藉中尋找可能有用的東西，聲聲泣血似的悲鳴在空間中迴盪，一隻毛茸茸的小生物從角落竄出。",
   ];
+  const dataLog = [...data, "-"];
   const [textState, setTextState] = useState(0);
   const battleState = useSelector((state) => state.state.battle);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function showText() {
     setTextState((prev) => prev + 1);
@@ -33,6 +36,7 @@ function Main18_2() {
       <button
         className={textState > 4 ? "btn main-btn" : "hidden"}
         onClick={() => {
+          dispatch(addLog(dataLog));
           navigate("/19");
         }}
       >

@@ -7,8 +7,18 @@ import {
 import { addLog } from "../../redux/logSlice/logSlice";
 
 const data = {
-  crabAngry: ["戰鬥！遭遇了2隻【怨懟的 變異的鋸緣鏽斑蟹】", "-"],
-  crab: ["戰鬥！遭遇了2隻【變異的鋸緣鏽斑蟹】", "-"],
+  crabAngry: [
+    "嘿、你們這次出航前有吃任何甲殼類料理嗎？比如龍鯊蝦拉什麼的。",
+    ">[是]",
+    "戰鬥！遭遇了2隻【怨懟的 變異的鋸緣鏽斑蟹】",
+    "-",
+  ],
+  crab: [
+    "嘿、你們這次出航前有吃任何甲殼類料理嗎？比如龍鯊蝦拉什麼的。",
+    ">[否]",
+    "戰鬥！遭遇了2隻【變異的鋸緣鏽斑蟹】",
+    "-",
+  ],
 };
 
 function CrabType({ crabTypeState, showCrabType }) {

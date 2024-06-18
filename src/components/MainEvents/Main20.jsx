@@ -1,5 +1,7 @@
 import { useState } from "react";
 import btnImg from "/UI/btn_sen_normal.png";
+import { useDispatch } from "react-redux";
+import { addLog } from "../../../redux/logSlice/logSlice";
 
 const data = [
   "意識沉在朦朧的海中，在黑暗襲來的前一刻，巨大的拉力將靈魂和軀殼一同向下拉扯，你撿回了掙扎的方式。無法掙脫的水流抓住了四肢，你在窒息的黑暗裡墜落。",
@@ -8,9 +10,11 @@ const data = [
   "失重感襲來時你看到你們可憐兮兮的船先一步落下，乘著速度和浮力在在海面上俏皮地彈了幾下，旗幟在風中飄揚，殘破的零件隨著衝擊灑落，你有預感船廠的老頭又要扯著你們的耳朵大罵不珍惜再狠狠薛你們一筆。",
   "好吧，無論如何，能離開那個鬼地方真是太他媽的好了，你看著漸遠的巨大身影緩緩沒入水中，留下一道瑩藍的軌跡在海面擴散，等著落入海面的衝擊襲來。",
 ];
+const dataLog = [...data, "-"];
 
 function Main20() {
   const [textState, setTextState] = useState(0);
+  const dispatch = useDispatch();
 
   function showText() {
     setTextState((prev) => prev + 1);
@@ -27,7 +31,12 @@ function Main20() {
           {el}
         </p>
       ))}
-      <button className={textState > 4 ? "btn main-btn" : "hidden"}>
+      <button
+        className={textState > 4 ? "btn main-btn" : "hidden"}
+        onClick={() => {
+          dispatch(addLog(dataLog));
+        }}
+      >
         <img src={btnImg} alt="" />
         <p>返航</p>
       </button>

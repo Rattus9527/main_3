@@ -13,6 +13,47 @@ import {
   setBoatSceneState,
   setMonster,
 } from "../../redux/stateSlice/stateSlice";
+import { addLog } from "../../redux/logSlice/logSlice";
+
+const dataLog = {
+  book: [
+    "就連神殿附設的圖書室都不會出現這麼多書，有錢有閒的天殺有錢人啊。",
+    "精裝的結實外殼保留了這些書最後的體面，不至於徹底散架。",
+    "你隨手翻了幾本，裡面使用的語言不是你認識的任何一種，單看圖片推測的話似乎大多都是和生物相關的，還有不少關於天文、洋流和地質礦物以及建築工程。",
+    "-",
+  ],
+  desk: [
+    "脆弱的紙張泛黃碎裂，僅看殘留的部分你也能確定這張地圖和你所知的航海圖相差甚遠，尤其是那些另外標註上去的筆跡，暈染開的墨跡拉出了長長的路線，但並不是你認知中的任何一條海路或是洋流。",
+    "-",
+  ],
+  paint: [
+    "這些大多是風景畫，看上去皆是名家之作，其中一幅的畫框格外華麗，吸引了你的目光。",
+    "稚嫩的筆觸在紙面大肆揮灑，童趣的線條似乎試著勾勒出一家三口，一個瞇眼微笑的金髮女人，一個滿臉鬍子的男人，還有一個緊握兩人雙手掛著大大笑容的孩子。",
+    "圖畫的右下角署名般寫著歪曲的文字：諾亞。",
+    "-",
+  ],
+  chair: [
+    "這張椅子明顯比倒在地上的那些要來得精緻許多，你很快便發現它端正的原因——這張椅子被死死地固定在地面上。",
+    "-",
+  ],
+};
+const dataLog2 = [
+  "水晶般清脆的碰撞聲叮叮咚咚地在頭上響起，緊接著便是天搖地動，劇烈的晃動讓人幾乎無法站立，屋內塵屑揚起，木板破碎地吱呀哀號，昏暗的室內突然打進一束光亮。",
+  "你們和窗外的東西對上了視線，那顆巨大的眼睛安靜地凝視著你們。",
+  "藍色結晶緊貼著破口，中間的圓點延伸出放射狀的細線，雲霧狀的細小分子在其中翻騰，讓本該透亮的目光變得混濁，周圍的一切鋪上一層幽藍。",
+  "圓點輕輕顫動，從左到右緩慢掃視屋內的每一吋，恐懼勒緊心臟，麻痺了思緒和行動，時間的流動被無限拉長。",
+  "刺耳的轟鳴聲炸開，苦苦支撐的梁柱在最後的尖叫後徹底斷裂，光亮灑落進來。",
+  "［抬頭］",
+  "牠雙足站立著，像把弄積木般將整塊屋頂捏在手裡，藍色結晶取代了皮膚，密密麻麻地爬滿了它整個軀體。",
+  "牠將屋頂往旁一拋，大量的晶塊和肉團隨之飛落，砸落水面發出濕潤的噗砰聲，紅白交錯的生物組織從縫隙中擠出纏繞包覆著晶體，結晶再刺破血肉竄出，牠在每一步中崩解又再生，僅有眼睛一動不動地緊盯你們的身影，你對那道溢出藍光的視線有種詭譎的熟悉感，你肯定在哪裡見過。",
+  "你無法靠渺小的人類軀殼和這樣的怪物戰鬥，請擲一個（BOBEI）。",
+  "聖筊－腎上腺素給了你無限的力量，你用無法想像的驚人技巧高速回到了船上，第一時間進入備戰模式。",
+  "笑筊－崎嶇的結晶山不論上下都很煩人，沒人想在這摔個屁股開花，你盡可能謹慎且快速的朝船奔去，戰鬥開始的第一回合無法行動。",
+  "無筊－唉呦喂呀！你的屁屁跟地面來了個親密接觸，儘管你以最快的速度起身，仍舊耽誤了些時間，戰鬥開始的前兩回合無法行動。",
+  "-",
+  "戰鬥！遭遇了【被吞噬的無名者】，混濁的雙眼沉默地注視著你們。",
+  "-",
+];
 
 function BoatScene() {
   const data = {
@@ -61,6 +102,7 @@ function BoatScene() {
               alt=""
               className="boat-table"
               onClick={() => {
+                dispatch(addLog(dataLog.desk));
                 setCurrent("desk");
               }}
             />
@@ -69,6 +111,7 @@ function BoatScene() {
               alt=""
               className="boat-book"
               onClick={() => {
+                dispatch(addLog(dataLog.book));
                 setCurrent("book");
               }}
             />
@@ -77,6 +120,7 @@ function BoatScene() {
               alt=""
               className="boat-chair"
               onClick={() => {
+                dispatch(addLog(dataLog.chair));
                 setCurrent("chair");
               }}
             />
@@ -85,6 +129,7 @@ function BoatScene() {
               alt=""
               className="boat-paint"
               onClick={() => {
+                dispatch(addLog(dataLog.paint));
                 setCurrent("paint");
               }}
             />
@@ -187,6 +232,7 @@ function BoatScene() {
               <span
                 className="hint"
                 onClick={() => {
+                  dispatch(addLog(dataLog2));
                   dispatch(setBoatSceneState());
                   dispatch(setMonster("nameless"));
                   dispatch(setBattleState());

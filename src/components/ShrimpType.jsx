@@ -1,5 +1,21 @@
 import { useDispatch } from "react-redux";
 import { setBattleState, setMonster } from "../../redux/stateSlice/stateSlice";
+import { addLog } from "../../redux/logSlice/logSlice";
+
+const data = {
+  shrimp: [
+    "老問題，你有惹惱甲殼類海鮮嗎？",
+    ">[無]",
+    "戰鬥！遭遇了4隻【變異的刺脊岩龍蝦】，請確保為每隻海怪進行擲骰。",
+    "-",
+  ],
+  shrimpAngry: [
+    "老問題，你有惹惱甲殼類海鮮嗎？",
+    ">[有]",
+    "戰鬥！遭遇了4隻【怨懟的 變異的刺脊岩龍蝦】，請確保為每隻海怪進行擲骰。",
+    "-",
+  ],
+};
 
 function ShrimpType({ shrimpTypeState, showShrimpType }) {
   const dispatch = useDispatch();
@@ -14,6 +30,7 @@ function ShrimpType({ shrimpTypeState, showShrimpType }) {
           onClick={() => {
             showShrimpType(false);
             dispatch(setMonster("shrimpAngry"));
+            dispatch(addLog(data.shrimpAngry));
             dispatch(setBattleState());
           }}
         >
@@ -24,6 +41,7 @@ function ShrimpType({ shrimpTypeState, showShrimpType }) {
           onClick={() => {
             showShrimpType(false);
             dispatch(setMonster("shrimp"));
+            dispatch(addLog(data.shrimp));
             dispatch(setBattleState());
           }}
         >

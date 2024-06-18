@@ -54,13 +54,21 @@ function Main9({ showCrabType }) {
         onAnimationEnd={updateTextState}
       >
         伴隨堅硬物體的撞擊聲，你們在難以站立的甲板上看到那剪刀狀的東西死死扣住船緣，兩顆透澈的藍色眼珠被眼柄托著悠晃地探了上來。
-        <br />
+      </p>
+      <p
+        className={textState > 4 ? "text" : "hidden"}
+        onAnimationEnd={updateTextState}
+      >
         你從未聽聞過這副模樣的海怪，將近半船高的蟹狀生物揮舞著不成比例地巨大的螯，細長的足部將軀幹高高撐起，殼上成片的藍色晶體肆意生長，難以辨識它原先的形體，看似普通的揮擊都能讓船體發出令人頭皮發麻的巨響。
-        <br />
+      </p>
+      <p
+        textState={textState > 5 ? "text" : "hidden"}
+        onAnimationEnd={updateTextState}
+      >
         於此同時，後方也傳來了相同的聲響，天知道這個啥都吞的大王八蛋吃了多少這樣的鬼東西，藍色的幽光隨著它們移動而閃爍，將戰鬥的舞台徹底點亮。
       </p>
       <button
-        className={textState > 4 ? "btn main-btn" : "hidden"}
+        className={textState > 6 ? "btn main-btn" : "hidden"}
         onClick={() => {
           dispatch(addLog(data));
           showCrabType(true);

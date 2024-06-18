@@ -5,6 +5,31 @@ import btnImg from "/UI/btn_sen_normal.png";
 import { useDispatch } from "react-redux";
 import { setImage } from "../../../redux/stateSlice/stateSlice";
 import { useNavigate } from "react-router-dom";
+import { addLog } from "../../../redux/logSlice/logSlice";
+
+const data = {
+  hasHint: [
+    "細小的窸窣聲引起了你們的注意，要不是周圍這片令人抓狂的寂靜，你肯定會錯過這麼小的騷動。",
+    "更多奇怪的符號進入你們的視線，就在海怪們圍繞著的巨大晶柱上，破碎的結晶匯聚成形，正盡力發出它最耀眼的光芒，像是想要訴說什麼。",
+    "這些歪七扭八的線條分開看的話似乎有點眼熟，但當它們湊在一塊時就讓人困惑。",
+    "在你們和晶柱面面相覷的時候，那行符號似乎逐漸失去了控制，幾次閃爍後它黯淡下來，組成它的結晶開始鬆動，一顆顆墜入水中，最後只剩下了原本光滑的平面。",
+    "你們是否持有【連缺ＯＯ因型都能懂的Ｏ學入門Ｏ南】？",
+    ">[是]",
+    "一回生，二回熟。你們熟練地取出那本潔白到不似這個世界造物的書籍，希望它能再次展現奇蹟。",
+    "很不幸的，這串符號被放在了練習題中，不過它很體貼地給出了提示。",
+    "切半、移動、三角函數，呃、最後的那個詞是什麼鬼？",
+    "-",
+  ],
+  noHint: [
+    "細小的窸窣聲引起了你們的注意，要不是周圍這片令人抓狂的寂靜，你肯定會錯過這麼小的騷動。",
+    "更多奇怪的符號進入你們的視線，就在海怪們圍繞著的巨大晶柱上，破碎的結晶匯聚成形，正盡力發出它最耀眼的光芒，像是想要訴說什麼。",
+    "這些歪七扭八的線條分開看的話似乎有點眼熟，但當它們湊在一塊時就讓人困惑。",
+    "在你們和晶柱面面相覷的時候，那行符號似乎逐漸失去了控制，幾次閃爍後它黯淡下來，組成它的結晶開始鬆動，一顆顆墜入水中，最後只剩下了原本光滑的平面。",
+    "你們是否持有【連缺ＯＯ因型都能懂的Ｏ學入門Ｏ南】？",
+    ">[否]",
+    "-",
+  ],
+};
 
 function Main15() {
   const [textState, setTextState] = useState(0);
@@ -89,6 +114,7 @@ function Main15() {
         onClick={() => {
           setImageState({ img1: false, img2: false });
           dispatch(setImage(14));
+          dispatch(addLog(hintState ? hasHint : noHint));
           navigate("/16");
         }}
       >
