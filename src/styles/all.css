@@ -225,6 +225,7 @@ main {
 }
 .btn p {
   position: absolute;
+  font-size: 20px;
 }
 
 .btn-list .btn {

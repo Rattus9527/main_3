@@ -69,7 +69,7 @@ function ImgArea() {
             }
             alt=""
           />
-          <p>123</p>
+          <p>戰鬥規則</p>
         </button>
         <button className="btn">
           <img
@@ -84,7 +84,7 @@ function ImgArea() {
             }
             alt=""
           />
-          <p>123</p>
+          <p>港口基本設施</p>
         </button>
       </div>
     </div>
