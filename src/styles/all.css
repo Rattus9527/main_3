@@ -495,6 +495,20 @@ main {
 .battle .rule::-webkit-scrollbar {
   display: none;
 }
+.battle .lose {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 600px;
+}
+.battle .lose img {
+  position: relative;
+}
+.battle .lose p {
+  color: #7d825a;
+}
 .battle .battle-name {
   position: absolute;
   display: flex;

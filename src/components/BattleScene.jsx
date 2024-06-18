@@ -5,6 +5,7 @@ import UiUp from "/BattleScene/BATTLE_up.png";
 import ship from "/BattleScene/BATTLE_ship.gif";
 import human from "/BattleScene/BATTLE_human.gif";
 import frame from "/BattleScene/BATTLE_fr2.png";
+import lose from "/BattleScene/BATTLE_SCENE_LOSE_ship.gif";
 //monster img
 import MonsterCrab from "/EP3/MONSTERS/3-11-1m.gif";
 import MonsterCrabAngry from "/EP3/MONSTERS/3-11-2m.gif";
@@ -187,6 +188,60 @@ function BattleScene({ windowState }) {
       </p>
     ),
   };
+
+  const loseText = {
+    crab: (
+      <>
+        你們珍愛的船隻在海怪如金屬般堅硬的巨螯下如同脆弱的蝦餅，在一次次衝擊下成了一堆無用的碎塊，一路駛來見到的殘骸預兆著你們的命運。
+        <br />
+        落入水面時你感受到了異樣的溫暖，液體輕柔地包覆著你的軀體，細碎的疼痛從指尖攀上，又迅速轉為溫順的撫摸。低沉的頻率是悠長的鳴唱，映入眼底的是成片湛藍的星空，在波紋擾動下暈開又凝和，無法形容的安心和寧靜吞噬了你，像是你從最初便是為此而存在。
+        <br />
+        <br />
+        旅程就此蟹幕，下台一鞠躬。
+      </>
+    ),
+    crabAngry: (
+      <>
+        你們珍愛的船隻在海怪如金屬般堅硬的巨螯下如同脆弱的蝦餅，在一次次衝擊下成了一堆無用的碎塊，一路駛來見到的殘骸預兆著你們的命運。
+        <br />
+        落入水面時你感受到了異樣的溫暖，液體輕柔地包覆著你的軀體，細碎的疼痛從指尖攀上，又迅速轉為溫順的撫摸。低沉的頻率是悠長的鳴唱，映入眼底的是成片湛藍的星空，在波紋擾動下暈開又凝和，無法形容的安心和寧靜吞噬了你，像是你從最初便是為此而存在。
+        <br />
+        <br />
+        旅程就此蟹幕，下台一鞠躬。
+      </>
+    ),
+    shrimp: (
+      <>
+        在巨大怪物的圍攻下，還有什麼能留下呢？你們海上溫馨的甜蜜小家就這樣被沒有思考能力的海鮮拆成木片，墜入水面時你突然懷念起冰冷刺骨的漆黑海水，那裡才該是你的歸處——嗎？
+        <br />
+        映著點點藍色螢光的溫暖液體親吻著每吋肌膚，綿長的低頻吟唱訴說著滿心喜悅的歡迎，難以言喻的安穩填滿了你，溢出的淚水被溫柔地接住，噓——靜靜地睡吧，你不知道比這更好的結局了。
+        <br />
+        <br />
+        旅程就此謝幕，蝦台一鞠躬。
+      </>
+    ),
+    shrimpAngry: (
+      <>
+        在巨大怪物的圍攻下，還有什麼能留下呢？你們海上溫馨的甜蜜小家就這樣被沒有思考能力的海鮮拆成木片，墜入水面時你突然懷念起冰冷刺骨的漆黑海水，那裡才該是你的歸處——嗎？
+        <br />
+        映著點點藍色螢光的溫暖液體親吻著每吋肌膚，綿長的低頻吟唱訴說著滿心喜悅的歡迎，難以言喻的安穩填滿了你，溢出的淚水被溫柔地接住，噓——靜靜地睡吧，你不知道比這更好的結局了。
+        <br />
+        <br />
+        旅程就此謝幕，蝦台一鞠躬。
+      </>
+    ),
+    nameless: (
+      <>
+        那怪物在一次次重組中失去了形體，逐漸變成一團不規則的肉塊，脹起腫瘤般的醜陋塊狀，數道帶著惡臭的體液從中噴出，只有那對湛藍的眼睛一成不變，平靜到令人毛骨悚然，宛如深淵般凝望著來客，吞噬一切敢於直面牠的愚勇者。
+        <br />
+        你看著那笨重的軀體朝你們挪動，肉團蠕動著包覆向無力逃脫的船隻，一點一點的啃蝕掉你們最好的夥伴和逃出這裡的微弱希望，恍惚中你又意識到了那道始終存在的低沉頻率，溫柔而和緩，不知為何你感到了安慰，一聲嘶啞的哀嘆輕飄飄地停滯在你的腦海。
+        <br />
+        <br />
+        潘尼達絲輕拍了下你的肩膀。
+      </>
+    ),
+  };
+
   const [btn1, btn2] = btnText[monster];
   const { hp, speed } = monsterState[monster];
   const block = {
@@ -236,7 +291,10 @@ function BattleScene({ windowState }) {
           <p>{btn2}</p>
         </button>
       </div>
-      <div className={battleEnd ? "container" : "hidden"}></div>
+      <div className={battleEnd ? "lose" : "hidden"}>
+        <img src={lose} alt="" />
+        <p className="text">{loseText[monster]}</p>
+      </div>
     </section>
   );
 }

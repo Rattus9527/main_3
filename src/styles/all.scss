@@ -325,6 +325,20 @@ main {
       display: none;
     }
   }
+  .lose {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 600px;
+    img {
+      position: relative;
+    }
+    p {
+      color: #7d825a;
+    }
+  }
   .battle-name {
     position: absolute;
     display: flex;
