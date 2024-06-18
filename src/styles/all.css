@@ -673,49 +673,163 @@ main {
   position: absolute;
   z-index: 5;
   top: 40px;
+}
+.book-contain {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 800px;
-  height: 600px;
+  height: 580px;
+  background-color: #babe7c;
 }
-.book .left {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  width: 400px;
+.book-contain .bg {
+  position: absolute;
 }
-.book .left img {
+.book-contain button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  z-index: 7;
+}
+.book-contain button img {
+  width: 40px;
+  height: 40px;
+}
+.book-contain .prev {
+  position: absolute;
   left: 0;
-  position: absolute;
 }
-.book .left .book-text {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 500px;
-  width: 280px;
-}
-.book .right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  width: 400px;
-  border-left: 1px solid #376862;
-}
-.book .right img {
+.book-contain .next {
   position: absolute;
   right: 0;
 }
-.book .right .book-text {
+.book-contain .showPaper {
+  background-color: #376862;
+  width: 40px;
+  height: 20px;
   position: absolute;
+  right: 120px;
+  top: 46px;
+}
+.book-contain .close-book {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background-color: #443f2d;
+}
+.book-contain .close-book .close-icon {
+  width: 20px;
+  height: 20px;
+}
+.book-contain .paper {
+  position: absolute;
+}
+.book-contain .paper div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 445px;
+  height: 600px;
+  background-color: #babe7c;
+}
+.book-contain .paper p {
+  position: absolute;
+  width: 300px;
+  font-size: 14px;
+}
+.book-contain .paper .close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background-color: #443f2d;
+}
+.book-contain .paper .close-btn .close-icon {
+  width: 20px;
+  height: 20px;
+}
+.book .left {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 500px;
-  width: 280px;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  z-index: 6;
+  position: relative;
+  top: -30px;
+  width: 400px;
+  height: 400px;
+  padding-left: 90px;
+  padding-right: 30px;
+}
+.book .left p {
+  max-width: 210px;
+  font-size: 14px;
+  color: #fff;
+}
+.book .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  z-index: 6;
+  position: relative;
+  top: -30px;
+  width: 400px;
+  height: 400px;
+  padding-left: 10px;
+  padding-right: 80px;
+}
+.book .right p {
+  max-width: 210px;
+  font-size: 12px;
+  color: #fff;
+}
+.book .delete {
+  color: #fff;
+  text-decoration: line-through;
+}
+.book .under {
+  color: #fff;
+  text-decoration: underline;
+}
+.book .small {
+  color: #fff;
+  font-size: 8px;
+}
+.book .a-left {
+  align-self: flex-start;
+}
+.book .a-right {
+  align-self: flex-end;
+}
+.book .a-center {
+  align-self: center;
+}
+
+.close-btn {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background-color: #443f2d;
+}
+.close-btn img {
+  width: 40px;
+  height: 40px;
 }
 
 .hint {

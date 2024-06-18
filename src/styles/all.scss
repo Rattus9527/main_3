@@ -501,48 +501,161 @@ main {
   position: absolute;
   z-index: 5;
   top: 40px;
-  width: 800px;
-  height: 600px;
-  .left {
+  &-contain {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    overflow: hidden;
-    width: 400px;
-    img {
-      left: 0;
+    width: 800px;
+    height: 580px;
+    background-color: #babe7c;
+    .bg {
       position: absolute;
     }
-    .book-text {
+    button {
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+      z-index: 7;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .prev {
       position: absolute;
+      left: 0;
+    }
+    .next {
+      position: absolute;
+      right: 0;
+    }
+    .showPaper {
+      background-color: #376862;
+      width: 40px;
+      height: 20px;
+      position: absolute;
+      right: 120px;
+      top: 46px;
+    }
+    .close-book {
+      position: absolute;
+      right: 10px;
+      top: 10px;
       display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      height: 500px;
-      width: 280px;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border: 0;
+      background-color: #443f2d;
+      .close-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .paper {
+      position: absolute;
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 445px;
+        height: 600px;
+        background-color: #babe7c;
+      }
+      p {
+        position: absolute;
+        width: 300px;
+        font-size: 14px;
+      }
+      .close-btn {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border: 0;
+        background-color: #443f2d;
+        .close-icon {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    z-index: 6;
+    position: relative;
+    top: -30px;
+    width: 400px;
+    height: 400px;
+    padding-left: 90px;
+    padding-right: 30px;
+    p {
+      max-width: 210px;
+      font-size: 14px;
+      color: #fff;
     }
   }
   .right {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
     overflow: hidden;
+    z-index: 6;
+    position: relative;
+    top: -30px;
     width: 400px;
-    border-left: 1px solid #376862;
-    img {
-      position: absolute;
-      right: 0;
+    height: 400px;
+    padding-left: 10px;
+    padding-right: 80px;
+    p {
+      max-width: 210px;
+      font-size: 12px;
+      color: #fff;
     }
-    .book-text {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      height: 500px;
-      width: 280px;
-    }
+  }
+  .delete {
+    color: #fff;
+    text-decoration: line-through;
+  }
+  .under {
+    color: #fff;
+    text-decoration: underline;
+  }
+  .small {
+    color: #fff;
+    font-size: 8px;
+  }
+  .a-left {
+    align-self: flex-start;
+  }
+  .a-right {
+    align-self: flex-end;
+  }
+  .a-center {
+    align-self: center;
+  }
+}
+.close-btn {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background-color: #443f2d;
+  img {
+    width: 40px;
+    height: 40px;
   }
 }
 

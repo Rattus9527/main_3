@@ -83,6 +83,7 @@ function BoatScene() {
   const [current, setCurrent] = useState("default");
   const [state, setState] = useState(true);
   const [hintState, setHintState] = useState(false);
+  const [bookState, showBook] = useState(false);
   const boatState = useSelector((state) => state.state.boatScene);
   const dispatch = useDispatch();
 
@@ -143,7 +144,15 @@ function BoatScene() {
             {current === "chair" && (
               <p>
                 它似乎承受了一些撞擊，左側扶手有著不尋常的縫隙，想辦法撬開後，你拿到了一本保存狀態尚可的
-                <span className="hint">［墨綠色手記］</span>。
+                <span
+                  className="hint"
+                  onClick={() => {
+                    showBook(true);
+                  }}
+                >
+                  ［墨綠色手記］
+                </span>
+                。
               </p>
             )}
             <p className="text">
@@ -243,7 +252,7 @@ function BoatScene() {
             </p>
           </div>
         )}
-        {/* <Book /> */}
+        {bookState && <Book showBook={showBook} />}
       </div>
     </section>
   );
