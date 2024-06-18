@@ -7,6 +7,7 @@ import page4 from "/EP3/BoatScene/book/0405.png";
 import page5 from "/EP3/BoatScene/book/06.png";
 import back from "/EP3/BoatScene/book/封底.png";
 import paaper from "/EP3/BoatScene/book/契約書.png";
+import sign from "/EP3/BoatScene/book/sign.png";
 
 import arrowLeft from "/EP3/BoatScene/arrow-l.png";
 import arrowRight from "/EP3/BoatScene/arrow-r.png";
@@ -168,6 +169,7 @@ function Book({ showBook }) {
                   showHint(false);
                 }}
               >
+                <img src={sign} alt="" className="sign" />
                 <img src={closeIcon} alt="" className="close-icon" />
               </button>
             </div>

@@ -56,7 +56,26 @@ function ImgArea() {
     <div className="img-area">
       <img src={currentImg[0]} alt="" className="sence" />
       <div className="btn-group">
-        <button className="btn">
+        <a href="#" className="btn">
+          <img
+            src={
+              mainState === "normal"
+                ? btnBg
+                : mainState === "off"
+                ? btnBgOff
+                : mainState === "dark"
+                ? btnBgDark
+                : btnBgBlood
+            }
+            alt=""
+          />
+          <p>本次注意事項</p>
+        </a>
+        <a
+          href="https://geraldseyeball.wixsite.com/geraldseyeball/戰鬥規則"
+          className="btn"
+          target="_blank"
+        >
           <img
             src={
               mainState === "normal"
@@ -70,8 +89,12 @@ function ImgArea() {
             alt=""
           />
           <p>戰鬥規則</p>
-        </button>
-        <button className="btn">
+        </a>
+        <a
+          href="https://geraldseyeball.wixsite.com/geraldseyeball/問與答"
+          className="btn"
+          target="_blank"
+        >
           <img
             src={
               mainState === "normal"
@@ -84,8 +107,27 @@ function ImgArea() {
             }
             alt=""
           />
-          <p>港口基本設施</p>
-        </button>
+          <p>Q&A</p>
+        </a>
+        <a
+          href="https://www.plurk.com/GeraldsEyeball"
+          className="btn"
+          target="_blank"
+        >
+          <img
+            src={
+              mainState === "normal"
+                ? btnBg
+                : mainState === "off"
+                ? btnBgOff
+                : mainState === "dark"
+                ? btnBgDark
+                : btnBgBlood
+            }
+            alt=""
+          />
+          <p>官方噗浪</p>
+        </a>
       </div>
     </div>
   );

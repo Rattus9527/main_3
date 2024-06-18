@@ -214,7 +214,7 @@ main {
 }
 .btn p {
   position: absolute;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .btn-list .btn {
@@ -285,6 +285,7 @@ main {
 .btn-group {
   display: flex;
   justify-content: end;
+  gap: 4px;
   animation: appear 1s ease-in;
 }
 
@@ -872,6 +873,13 @@ main {
 }
 .book .a-center {
   align-self: center;
+}
+.book .sign {
+  position: absolute;
+  top: 470px;
+  right: 90px;
+  width: 80px;
+  height: auto;
 }
 
 .close-btn {
