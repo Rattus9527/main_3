@@ -186,7 +186,7 @@ main {
   display: flex;
   align-items: center;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   transition: 1s;
 }
 
@@ -562,26 +562,26 @@ main {
 .battle::before {
   content: "";
   position: absolute;
-  left: 0;
+  left: 10px;
   z-index: -2;
   height: 100%;
   background-image: url("/public/UI/frame_左_深綠.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 30%;
+  width: 300px;
 }
 .battle::after {
   content: "";
   position: absolute;
-  right: 0;
+  right: 10px;
   z-index: -2;
   height: 100%;
   background-image: url("/public/UI/frame_右_深綠.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 30%;
+  width: 300px;
 }
 
 .crab-type {
@@ -620,7 +620,7 @@ main {
 
 .boat-scene {
   position: absolute;
-  overflow: scroll;
+  overflow: auto;
   top: 0;
   left: 0;
   width: 100vw;
