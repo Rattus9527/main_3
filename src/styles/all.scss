@@ -94,9 +94,6 @@ main {
   animation: appear 1.5s ease-out;
 }
 .text-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
   width: 370px;
   max-height: 520px;
   overflow-y: scroll;
