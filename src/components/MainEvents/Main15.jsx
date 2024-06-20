@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import mainImg15_1 from "/EP3/3-15-1.png";
 import mainImg15_2 from "/EP3/3-15-2.png";
 import btnImg from "/UI/btn_sen_normal.png";
@@ -35,12 +35,22 @@ function Main15() {
   const [textState, setTextState] = useState(0);
   const [imgState, setImageState] = useState({ img1: false, img2: false });
   const [hintState, setHintState] = useState(false);
+  const [hint2State, setHint2State] = useState(false);
+  const ref = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   function showText() {
     setTextState((prev) => prev + 1);
   }
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState, hintState]);
 
   return (
     <div className="text-box">
@@ -96,6 +106,7 @@ function Main15() {
         </span>
         <span className="hint">［否］</span>
       </p>
+      <p className={hint2State ? "text" : "hidden"}>噢，那真是太可惜了。</p>
       <p className={hintState ? "text" : "hidden"} onAnimationEnd={showText}>
         一回生，二回熟。你們熟練地取出那本潔白到不似這個世界造物的書籍，希望它能再次展現奇蹟。
       </p>
@@ -121,6 +132,7 @@ function Main15() {
         <img src={btnImg} alt="" />
         <p>繼續前進</p>
       </button>
+      <div ref={ref}></div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import btnImg from "/UI/btn_sen_normal.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -17,12 +17,21 @@ const data = [
 
 function Main14({ showShrimpType }) {
   const [textState, setTextState] = useState(0);
+  const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
 
   function showText() {
     setTextState((prev) => prev + 1);
   }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState]);
 
   return (
     <div className="text-box">
@@ -70,6 +79,7 @@ function Main14({ showShrimpType }) {
         <img src={btnImg} alt="" />
         <p>進入戰鬥</p>
       </button>
+      <div ref={ref}></div>
     </div>
   );
 }

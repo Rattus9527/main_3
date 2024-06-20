@@ -6,6 +6,8 @@ import ship from "/BattleScene/BATTLE_ship.gif";
 import human from "/BattleScene/BATTLE_human.gif";
 import frame from "/BattleScene/BATTLE_fr2.png";
 import lose from "/BattleScene/BATTLE_SCENE_LOSE_ship.gif";
+import loseFrame from "/BattleScene/BATTLE_monstername.png";
+import loseBtn from "/BattleScene/btn.png";
 //monster img
 import MonsterCrab from "/EP3/MONSTERS/3-11-1m.gif";
 import MonsterCrabAngry from "/EP3/MONSTERS/3-11-2m.gif";
@@ -379,8 +381,19 @@ function BattleScene({ windowState }) {
         </button>
       </div>
       <div className={battleEnd ? "lose" : "hidden"}>
-        <img src={lose} alt="" />
+        <img src={loseFrame} alt="" className="lose-frame" />
+        <h2>{btn2}</h2>
+        <img src={lose} alt="" className="lose-boat" />
         <p className="text">{loseText[monster]}</p>
+        <div className="lose-btn">
+          <a
+            href="https://geraldseyeball.wixsite.com/geraldseyeball/有償復活"
+            className="dead"
+          >
+            <img src={loseBtn} alt="" />
+            <p>死亡</p>
+          </a>
+        </div>
       </div>
     </section>
   );

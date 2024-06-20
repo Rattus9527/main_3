@@ -422,6 +422,34 @@ main {
   background-image: url(/BattleScene/BATTLE_base1.png);
   background-size: cover;
 }
+.battle .container::before {
+  content: "";
+  position: absolute;
+  left: -30%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -2;
+  width: 280px;
+  height: 100%;
+  background-image: url("/public/UI/frame_左_深綠.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.battle .container::after {
+  content: "";
+  position: absolute;
+  right: -30%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -2;
+  height: 100%;
+  background-image: url("/public/UI/frame_右_深綠.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 280px;
+}
 .battle img {
   position: absolute;
 }
@@ -516,18 +544,48 @@ main {
   display: none;
 }
 .battle .lose {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 800px;
   height: 600px;
 }
-.battle .lose img {
-  position: relative;
-}
 .battle .lose p {
-  color: #7d825a;
+  margin-top: 120px;
+  color: #49513e;
+}
+.battle .lose h2 {
+  position: absolute;
+  top: 30px;
+  color: #49513e;
+  font-size: 32px;
+}
+.battle .lose-frame {
+  position: absolute;
+  top: 0;
+  width: 400px;
+}
+.battle .lose-boat {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+}
+.battle .lose-btn {
+  position: absolute;
+  bottom: 150px;
+  left: 30px;
+  width: 200px;
+}
+.battle .lose .dead {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.battle .lose .dead p {
+  position: absolute;
+  margin: 0;
 }
 .battle .battle-name {
   position: absolute;
@@ -559,30 +617,6 @@ main {
 }
 .battle .btn.down {
   top: 532px;
-}
-.battle::before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  z-index: -2;
-  height: 100%;
-  background-image: url("/public/UI/frame_左_深綠.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 300px;
-}
-.battle::after {
-  content: "";
-  position: absolute;
-  right: 10px;
-  z-index: -2;
-  height: 100%;
-  background-image: url("/public/UI/frame_右_深綠.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 300px;
 }
 
 .crab-type {
@@ -922,8 +956,8 @@ main {
   text-shadow: 0 0 3px #fff;
 }
 
-.clue {
-  display: none;
+.mark {
+  opacity: 0.5;
 }
 
 .btn-show {

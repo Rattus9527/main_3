@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setImage, setMainState } from "../../../redux/stateSlice/stateSlice";
 import { useNavigate } from "react-router-dom";
@@ -46,6 +46,10 @@ function Main13_1() {
   const style = {
     opacity: 0.7,
   };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState, hintState]);
 
   return (
     <div className="text-box">

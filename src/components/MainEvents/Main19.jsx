@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import btnImg from "/UI/btn_sen_off.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setImage, setMainState } from "../../../redux/stateSlice/stateSlice";
@@ -21,12 +21,21 @@ const data = [
 function Main19() {
   const mainState = useSelector((state) => state.state.main);
   const [textState, setTextState] = useState(0);
+  const ref = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
 
   function showText() {
     setTextState((prev) => prev + 1);
   }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState]);
 
   return (
     <div className="text-box">
@@ -98,12 +107,14 @@ function Main19() {
         onClick={() => {
           dispatch(addLog(data));
           dispatch(setMainState("normal"));
+          dispatch(setImage(18));
           navigate("/20");
         }}
       >
         <img src={btnImg} alt="" />
         <p>下墜</p>
       </button>
+      <div ref={ref}></div>
     </div>
   );
 }

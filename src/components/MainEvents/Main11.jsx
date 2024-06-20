@@ -81,7 +81,7 @@ function Main11() {
           ［否］
         </span>
       </p>
-      <p className={hint2State ? "text" : "hidden"}>[...]</p>
+      <p className={hint2State ? "text" : "hidden"}>噢，那真是太可惜了。</p>
       <p
         className={hintState ? "text" : "hidden"}
         onAnimationEnd={() => {

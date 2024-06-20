@@ -8,6 +8,10 @@ function GetItem({ itemState, showItem }) {
   const gold = useSelector((state) => state.item.gold);
   const sliver = useSelector((state) => state.item.sliver);
   const bronze = useSelector((state) => state.item.bronze);
+  const pCrystal = useSelector((state) => state.item.pCrystal);
+  const pGold = useSelector((state) => state.item.pGold);
+  const pSliver = useSelector((state) => state.item.pSliver);
+  const pItem = useSelector((state) => state.item.pItem);
 
   return (
     <div className={itemState ? "item" : "hidden"}>
@@ -20,12 +24,25 @@ function GetItem({ itemState, showItem }) {
         <img src={closeIcon} alt="" />
       </button>
       <ul>
+        <li>個人獎勵 -</li>
+        {pCrystal > 0 && <li>未打磨的藍晶 x{pCrystal}</li>}
+        {pGold != 0 || pSliver != 0
+          ? `錢財 - ${pGold > 0 ? `${pGold}金` : ""} ${
+              pSliver > 0 ? `${pSliver}銀` : ""
+            }`
+          : ""}
+        {pItem.map((el, i) => (
+          <li key={i}>{el}</li>
+        ))}
+        <li>船隊獎勵 -</li>
         {crystal > 0 && <li>藍晶 x{crystal}</li>}
         {uncrystal > 0 && <li>未打磨的藍晶 x{uncrystal}</li>}
         <li>
-          錢財 - {gold > 0 && `${gold}金 `}
-          {sliver > 0 && `${sliver}銀 `}
-          {bronze > 0 && `${bronze}銅`}
+          {gold != 0 || sliver != 0 || bronze != 0
+            ? `錢財 - ${gold > 0 ? `${gold}金 ` : ""}
+          ${sliver > 0 ? `${sliver}銀 ` : ""}
+          ${bronze > 0 ? `${bronze}銅` : ""}`
+            : ""}
         </li>
         {itemList.map((el, i) => (
           <li key={i}>{el}</li>

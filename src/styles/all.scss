@@ -260,6 +260,34 @@ main {
     background-color: #1c1c17;
     background-image: url(/BattleScene/BATTLE_base1.png);
     background-size: cover;
+    &::before {
+      content: "";
+      position: absolute;
+      left: -30%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -2;
+      width: 280px;
+      height: 100%;
+      background-image: url("/public/UI/frame_左_深綠.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: -30%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -2;
+      height: 100%;
+      background-image: url("/public/UI/frame_右_深綠.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 280px;
+    }
   }
   img {
     position: absolute;
@@ -355,17 +383,47 @@ main {
     }
   }
   .lose {
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 800px;
     height: 600px;
-    img {
-      position: relative;
-    }
     p {
-      color: #7d825a;
+      margin-top: 120px;
+      color: #49513e;
+    }
+    h2 {
+      position: absolute;
+      top: 30px;
+      color: #49513e;
+      font-size: 32px;
+    }
+    &-frame {
+      position: absolute;
+      top: 0;
+      width: 400px;
+    }
+    &-boat {
+      position: absolute;
+      bottom: -20px;
+      right: 0;
+    }
+    &-btn {
+      position: absolute;
+      bottom: 150px;
+      left: 30px;
+      width: 200px;
+    }
+    .dead {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p {
+        position: absolute;
+        margin: 0;
+      }
     }
   }
   .battle-name {
@@ -398,30 +456,6 @@ main {
     &.down {
       top: 532px;
     }
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    left: 10px;
-    z-index: -2;
-    height: 100%;
-    background-image: url("/public/UI/frame_左_深綠.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 300px;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    right: 10px;
-    z-index: -2;
-    height: 100%;
-    background-image: url("/public/UI/frame_右_深綠.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 300px;
   }
 }
 .crab-type {
@@ -755,8 +789,8 @@ main {
     text-shadow: 0 0 3px #fff;
   }
 }
-.clue {
-  display: none;
+.mark {
+  opacity: 0.5;
 }
 .btn-show {
   display: flex;

@@ -14,10 +14,69 @@ const logData = [...data, "-"];
 
 function Main10() {
   const battleState = useSelector((state) => state.state.battle);
+  const monster = useSelector((state) => state.state.monster);
   const [textState, showText] = useState(0);
+  const [hintState, showHintState] = useState(false);
   const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const getItem = {
+    crab: (
+      <>
+        每艘船獲得 - <br />
+        未打磨的藍晶 x400
+        <br />
+        堅硬蟹螯 x4
+        <br />
+        10銀
+        <br />
+        石化鯨礦 x5
+        <br />
+        鋸緣指虎 x2
+      </>
+    ),
+    crabAngry: (
+      <>
+        每艘船獲得 - <br />
+        未打磨的藍晶 x650
+        <br />
+        堅硬蟹螯 x4
+        <br />
+        10銀
+        <br />
+        石化鯨礦 x5
+        <br />
+        鋸緣指虎 x2
+        <br />
+        閃爍藍光的堅硬甲殼 x4
+      </>
+    ),
+  };
+
+  const itemData = {
+    crab: [
+      "[戰鬥獎勵]",
+      "每艘船獲得 -",
+      "未打磨的藍晶 x400",
+      "堅硬蟹螯 x4",
+      "10銀",
+      "石化鯨礦 x5",
+      "鋸緣指虎 x2",
+      "-",
+    ],
+    crabAngry: [
+      "[戰鬥獎勵]",
+      "每艘船獲得 -",
+      "未打磨的藍晶 x650",
+      "堅硬蟹螯 x4",
+      "10銀",
+      "石化鯨礦 x5",
+      "鋸緣指虎 x2",
+      "閃爍藍光的堅硬甲殼 x4",
+      "-",
+    ],
+  };
 
   function scrollToBottom() {
     ref.current.scrollIntoView("smooth");
@@ -25,7 +84,7 @@ function Main10() {
 
   useEffect(() => {
     scrollToBottom();
-  }, [textState]);
+  }, [textState, hintState]);
 
   const textList = data.map((el, i) => (
     <p
@@ -41,10 +100,11 @@ function Main10() {
   const btn = (
     <button
       key={data.length}
-      className={textState > 1 ? "btn main-btn" : "hidden"}
+      className={textState > 2 ? "btn main-btn" : "hidden"}
       onClick={() => {
         dispatch(setImage(13));
         dispatch(addLog(logData));
+        dispatch(addLog(itemData[monster]));
         navigate("/11");
       }}
     >
@@ -56,6 +116,18 @@ function Main10() {
   return (
     <div className="text-box">
       {textList}
+      <p
+        className={textState > 1 ? "text" : "hidden"}
+        onAnimationEnd={() => {
+          showText(textState + 1);
+        }}
+        onClick={() => {
+          showHintState(true);
+        }}
+      >
+        <span className="hint">[戰鬥獎勵]</span>
+      </p>
+      <p className={hintState ? "text" : "hidden"}>{getItem[monster]}</p>
       <div ref={ref}></div>
     </div>
   );

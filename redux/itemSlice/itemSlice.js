@@ -7,6 +7,10 @@ const initialState = {
   gold: 0,
   bronze: 0,
   item: [],
+  pCrystal: 0,
+  pGold: 0,
+  pSliver: 0,
+  pItem: [],
 };
 
 const itemSlice = createSlice({
@@ -36,6 +40,18 @@ const itemSlice = createSlice({
       const prev = state.bronze;
       state.bronze = prev + action.payload;
     },
+    setPCrystal: (state, action) => {
+      state.pCrystal += action.payload;
+    },
+    setPItem: (state, action) => {
+      state.pItem = [...state.pItem, ...action.payload];
+    },
+    setPGold: (state, action) => {
+      state.pGold += action.payload;
+    },
+    setPSliver: (state, action) => {
+      state.pSliver += action.payload;
+    },
   },
 });
 
@@ -46,5 +62,9 @@ export const {
   setGold,
   setSliver,
   setBronze,
+  setPCrystal,
+  setPGold,
+  setPSliver,
+  setPItem,
 } = itemSlice.actions;
 export default itemSlice.reducer;

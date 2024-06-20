@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import btnImg from "/UI/btn_sen_normal.png";
 import { useDispatch } from "react-redux";
 import { addLog } from "../../../redux/logSlice/logSlice";
@@ -14,11 +14,20 @@ const dataLog = [...data, "-"];
 
 function Main20() {
   const [textState, setTextState] = useState(0);
+  const ref = useRef();
   const dispatch = useDispatch();
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
 
   function showText() {
     setTextState((prev) => prev + 1);
   }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState]);
 
   return (
     <div className="text-box">
@@ -40,6 +49,7 @@ function Main20() {
         <img src={btnImg} alt="" />
         <p>返航</p>
       </button>
+      <div ref={ref}></div>
     </div>
   );
 }

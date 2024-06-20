@@ -42,17 +42,8 @@ function Main8Talk() {
   const [q3, showq3] = useState(false);
   const [q4, showq4] = useState(false);
   const [q5, showq5] = useState(false);
-  const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  function scrollToBottom() {
-    ref.current.scrollIntoView("smooth");
-  }
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [q1, q2, q3, q4, q5]);
 
   const style = {
     opacity: 0.8,
@@ -136,7 +127,6 @@ function Main8Talk() {
         <img src={btnImg} alt="" />
         <p>沒什麼好說的了</p>
       </button>
-      <div ref={ref}></div>
     </div>
   );
 }

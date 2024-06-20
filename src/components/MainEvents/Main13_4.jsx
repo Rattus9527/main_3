@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import btnImg from "/UI/btn_sen_BW.png";
 import { setImage, setMainState } from "../../../redux/stateSlice/stateSlice";
@@ -8,8 +8,8 @@ import {
   setBronze,
   setCrystal,
   setItem,
+  setPCrystal,
   setSliver,
-  setUncrystal,
 } from "../../../redux/itemSlice/itemSlice";
 
 const data = [
@@ -19,14 +19,31 @@ const data = [
   "剎那間，一道藍光閃過，速度快得像是幻影，然後是第二道、第三道、無數道，像是漫天流星的倒影被水面捕獲。",
   "在噗通的水聲中你們看清了流光的真身，一隻隻細長的小型魚躍出水面，鱗片在接觸空氣的瞬間泛起銀藍的光芒，又在落入水中時熄滅。",
   "在這場小型流星雨的盡頭，你們看見了願望成真。",
-  "一個湛藍的寶箱悠悠地漂了過來。",
+  "一個[湛藍的寶箱]悠悠地漂了過來。",
+  "每位船員獲得 -",
+  "未打磨的藍晶 x400",
+  "每艘船獲得 -",
+  "18銀50銅",
+  "多功能維修套組 x3",
+  "機械零件 x5",
+  "[索羅爾群島仲裁者] 部件A x2",
   "-",
 ];
 
 function Main13_4() {
   const [textState, setTextState] = useState(0);
+  const [hintState, setHintState] = useState(false);
+  const ref = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState, hintState]);
 
   const item = [
     "多功能維修套組(15銀/個) x3 - 1回合 能使用1次，並在該回合立即恢復 船隻耐久＋150。",
@@ -77,7 +94,31 @@ function Main13_4() {
           setTextState((prev) => prev + 1);
         }}
       >
-        一個<span className="crystal">湛藍的寶箱</span>悠悠地漂了過來。
+        一個
+        <span
+          className="crystal"
+          onClick={() => {
+            setHintState(true);
+          }}
+        >
+          [湛藍的寶箱]
+        </span>
+        悠悠地漂了過來。
+      </p>
+      <p className={hintState ? "text" : "hidden"}>
+        每位船員獲得 - <br />
+        未打磨的藍晶 x400
+        <br />
+        每艘船獲得 -<br />
+        18銀50銅
+        <br />
+        藍晶 x150
+        <br />
+        多功能維修套組 x3
+        <br />
+        機械零件 x5
+        <br />
+        [索羅爾群島仲裁者] 部件A x2
       </p>
       <button
         className={textState > 4 ? "btn main-btn" : "hidden"}
@@ -85,7 +126,7 @@ function Main13_4() {
           dispatch(setImage(15));
           dispatch(setMainState("normal"));
           dispatch(addLog(data));
-          dispatch(setUncrystal(400));
+          dispatch(setPCrystal(400));
           dispatch(setCrystal(150));
           dispatch(setSliver(18));
           dispatch(setBronze(50));
@@ -96,6 +137,7 @@ function Main13_4() {
         <img src={btnImg} alt="" />
         <p>繼續前進</p>
       </button>
+      <div ref={ref}></div>
     </div>
   );
 }

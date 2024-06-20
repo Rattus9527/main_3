@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import btnImg from "/UI/btn_sen_BW.png";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -43,12 +43,21 @@ const data = {
 function Main16_4() {
   const [textState, setTextState] = useState(0);
   const [hintState, setHintState] = useState(false);
+  const ref = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   function showText() {
     setTextState((prev) => prev + 1);
   }
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState]);
 
   return (
     <div className="text-box">
@@ -122,6 +131,7 @@ function Main16_4() {
         <img src={btnImg} alt="" />
         <p>繼續前進</p>
       </button>
+      <div ref={ref}></div>
     </div>
   );
 }

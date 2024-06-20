@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import btnImg from "/UI/btn_sen_BW.png";
 import { setImage, setMainState } from "../../../redux/stateSlice/stateSlice";
@@ -24,7 +24,7 @@ const data = [
 ];
 const dataFalse = [
   ">[3]",
-  "你們決定前往右二的通道，潮濕的空氣撲面而來，冰冷的液體偶爾從頭頂滴落，砸落甲板清脆的迸裂，劃破死寂的黑暗。",
+  "你們決定前往右二的通道，潮濕的空氣撲面而來，冰冷的液體偶爾從頭頂滴落，砸落甲板清脆地迸裂，劃破死寂的黑暗。",
   "它們掉落得並不密集，但每次落到肌膚上總能激起成片的雞皮疙瘩，在這令人神經緊繃的地方真是該死地惱人。",
   "請擲一個（COIN）。",
   "Ｐ - 液體落下的聲音空洞地迴響。",
@@ -40,12 +40,21 @@ const dataFalse = [
 function Main13_3() {
   const [textState, setTextState] = useState(0);
   const [hintState, setHint] = useState(false);
+  const ref = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
 
   const style = {
     opacity: 0.7,
   };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState]);
 
   return (
     <div className="text-box">
@@ -55,7 +64,7 @@ function Main13_3() {
           setTextState((prev) => prev + 1);
         }}
       >
-        你們決定前往右二的通道，潮濕的空氣撲面而來，冰冷的液體偶爾從頭頂滴落，砸落甲板清脆的迸裂，劃破死寂的黑暗。它們掉落得並不密集，但每次落到肌膚上總能激起成片的雞皮疙瘩，在這令人神經緊繃的地方真是該死地惱人。
+        你們決定前往右二的通道，潮濕的空氣撲面而來，冰冷的液體偶爾從頭頂滴落，砸落甲板清脆地迸裂，劃破死寂的黑暗。它們掉落得並不密集，但每次落到肌膚上總能激起成片的雞皮疙瘩，在這令人神經緊繃的地方真是該死地惱人。
       </p>
       <p className={textState > 0 ? "text" : "hidden"}>
         請擲一個
@@ -132,6 +141,7 @@ function Main13_3() {
         <img src={btnImg} alt="" />
         <p>繼續前進</p>
       </button>
+      <div ref={ref}></div>
     </div>
   );
 }
