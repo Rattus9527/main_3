@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import btnBg from "/UI/btn_sen_blood.png";
 import { useDispatch } from "react-redux";
@@ -20,11 +20,21 @@ const data = [
 
 function Main3({ main3BtnState }) {
   const [textState, textShow] = useState(0);
+  const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   function explosion() {
     dispatch(setBloodState());
   }
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState]);
+
   return (
     <div className="text-box">
       <p
@@ -86,6 +96,7 @@ function Main3({ main3BtnState }) {
           <p>往右</p>
         </button>
       </div>
+      <div ref={ref}></div>
     </div>
   );
 }

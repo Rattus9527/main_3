@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setImage, setMainState } from "../../../redux/stateSlice/stateSlice";
 import { useNavigate } from "react-router-dom";
@@ -35,8 +35,13 @@ const dataFalse = [
 function Main13_1() {
   const [textState, setTextState] = useState(0);
   const [hintState, setHintState] = useState(false);
+  const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
 
   const style = {
     opacity: 0.7,
@@ -120,6 +125,7 @@ function Main13_1() {
         <img src={btnImg} alt="" />
         <p>繼續前進</p>
       </button>
+      <div ref={ref}></div>
     </div>
   );
 }

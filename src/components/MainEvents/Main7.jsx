@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import btnImg from "/UI/btn_sen_BW.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,8 +16,17 @@ const logData = [...data, "-"];
 function Main7() {
   const blackState = useSelector((state) => state.state.black);
   const [textState, updateState] = useState(0);
+  const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState]);
 
   let list = data.map((el, i) => (
     <p
@@ -46,6 +55,11 @@ function Main7() {
     </button>
   );
   list.push(btn);
-  return <div className="text-box">{list}</div>;
+  return (
+    <div className="text-box">
+      {list}
+      <div ref={ref}></div>
+    </div>
+  );
 }
 export default Main7;

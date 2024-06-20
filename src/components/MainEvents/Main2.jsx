@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import btnImg from "/UI/btn_sen_normal.png";
 import { useDispatch } from "react-redux";
@@ -17,6 +17,15 @@ function Main2() {
   const [hint1State, showHint1] = useState(false);
   const [hint2State, showHint2] = useState(false);
   const [btnState, showBtn] = useState(false);
+  const ref = useRef();
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [hint1State, hint2State]);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -73,6 +82,7 @@ function Main2() {
         <img src={btnImg} alt="" />
         <p>他們來了</p>
       </button>
+      <div ref={ref}></div>
     </div>
   );
 }

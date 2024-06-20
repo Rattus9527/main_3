@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import btnImg from "/UI/btn_sen_normal.png";
 import { useDispatch } from "react-redux";
@@ -17,12 +17,22 @@ const data = [
 
 function Main9({ showCrabType }) {
   const [textState, showText] = useState(0);
+  const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const updateTextState = () => {
     showText(textState + 1);
   };
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState]);
+
   return (
     <div className="text-box">
       <p className="text" onAnimationEnd={updateTextState}>
@@ -78,6 +88,7 @@ function Main9({ showCrabType }) {
         <img src={btnImg} alt="" />
         <p>進入戰鬥</p>
       </button>
+      <div ref={ref}></div>
     </div>
   );
 }

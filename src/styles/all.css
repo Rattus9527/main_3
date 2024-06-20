@@ -896,6 +896,7 @@ main {
 .hint {
   font-weight: 800;
   cursor: pointer;
+  text-decoration: underline;
 }
 .hint:hover {
   text-shadow: 0 0 3px #fff;
@@ -905,6 +906,7 @@ main {
   font-weight: 800;
   cursor: pointer;
   color: #fff;
+  text-decoration: underline;
 }
 .hint-white:hover {
   text-shadow: 0 0 3px #fff;
@@ -914,6 +916,7 @@ main {
   font-weight: 800;
   cursor: pointer;
   color: #7d825a;
+  text-decoration: underline;
 }
 .hint-off:hover {
   text-shadow: 0 0 3px #fff;

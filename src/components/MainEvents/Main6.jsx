@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -19,8 +19,17 @@ const data = [
 
 function Main6() {
   const [textState, showText] = useState(0);
+  const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState]);
 
   return (
     <div className="text-box">
@@ -60,6 +69,7 @@ function Main6() {
       >
         ［？］
       </p>
+      <div ref={ref}></div>
     </div>
   );
 }

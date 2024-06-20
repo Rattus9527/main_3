@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import btnImg from "/UI/btn_sen_off.png";
 import { useDispatch } from "react-redux";
@@ -24,12 +24,21 @@ const data = [
 
 function Main8() {
   const [textState, showText] = useState(0);
+  const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
 
   const updateTextState = () => {
     showText(textState + 1);
   };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState]);
   return (
     <div className="text-box">
       <p className="text" onAnimationEnd={updateTextState}>
@@ -152,6 +161,7 @@ function Main8() {
         <img src={btnImg} alt="" />
         <p>......？</p>
       </button>
+      <div ref={ref}></div>
     </div>
   );
 }

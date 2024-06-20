@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import btnImg from "/UI/btn_sen_normal.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,8 +15,17 @@ const logData = [...data, "-"];
 function Main10() {
   const battleState = useSelector((state) => state.state.battle);
   const [textState, showText] = useState(0);
+  const ref = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  function scrollToBottom() {
+    ref.current.scrollIntoView("smooth");
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState]);
 
   const textList = data.map((el, i) => (
     <p
@@ -44,6 +53,11 @@ function Main10() {
     </button>
   );
   textList.push(btn);
-  return <div className="text-box">{textList}</div>;
+  return (
+    <div className="text-box">
+      {textList}
+      <div ref={ref}></div>
+    </div>
+  );
 }
 export default Main10;
