@@ -5,6 +5,7 @@ import page2 from "/EP3/BoatScene/book/02.png";
 import page3 from "/EP3/BoatScene/book/03.png";
 import page4 from "/EP3/BoatScene/book/0405.png";
 import page5 from "/EP3/BoatScene/book/06.png";
+import page8 from "/EP3/BoatScene/book/08.png";
 import back from "/EP3/BoatScene/book/封底.png";
 import paaper from "/EP3/BoatScene/book/契約書.png";
 import sign from "/EP3/BoatScene/book/sign.png";
@@ -23,7 +24,7 @@ function Book({ showBook }) {
     5: page4,
     6: page5,
     7: page4,
-    8: page4,
+    8: page8,
     9: back,
   };
   const info = {

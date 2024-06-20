@@ -60,6 +60,10 @@ function Main16_1() {
     scrollToBottom();
   }, [textState]);
 
+  const style = {
+    opacity: 0.7,
+  };
+
   return (
     <div className="text-box">
       <p className="text" onAnimationEnd={showText}>
@@ -95,7 +99,7 @@ function Main16_1() {
         <br />
         特殊骰 - 你們得到了艾沫的讚賞，獲得所有通道內的資訊。
       </p>
-      <p className={hintState ? "text" : "hidden"}>
+      <p className={hintState ? "text" : "hidden"} style={style}>
         「綻放光明的海洋結晶，是來自流動火焰的孩子啊。
         <br />
         不該離開母親的懷抱，該在層層藍色的被子下入眠。

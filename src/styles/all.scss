@@ -528,6 +528,9 @@ main {
     }
   }
   .text-s {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     position: absolute;
     z-index: 4;
     bottom: 25px;
@@ -628,12 +631,12 @@ main {
       right: 0;
     }
     .showPaper {
-      background-color: #376862;
       width: 40px;
-      height: 20px;
+      height: 70px;
       position: absolute;
-      right: 120px;
-      top: 46px;
+      right: 350px;
+      top: 120px;
+      cursor: pointer;
     }
     .close-book {
       position: absolute;
@@ -857,6 +860,9 @@ main {
 .shine {
   color: #fff;
   text-shadow: 0px 0px 3px #fff;
+}
+.bold {
+  font-weight: 900;
 }
 
 @keyframes appear {

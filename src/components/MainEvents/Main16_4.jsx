@@ -59,6 +59,10 @@ function Main16_4() {
     scrollToBottom();
   }, [textState]);
 
+  const style = {
+    opacity: 0.7,
+  };
+
   return (
     <div className="text-box">
       <p className="text" onAnimationEnd={showText}>
@@ -94,7 +98,7 @@ function Main16_4() {
         <br />
         特殊骰 - 艾沫慈愛地注視著你們，獲得所有通道內的資訊。
       </p>
-      <p className={hintState ? "text" : "hidden"}>
+      <p className={hintState ? "text" : "hidden"} style={style}>
         「他們在融化，那已經不是我認識的人了，我到底該如何是好？
         <br />
         先生沒有要放棄，他已經瘋了。

@@ -33,7 +33,7 @@ function Main5m() {
 
   useEffect(() => {
     scrollToBottom();
-  }, [textState, diceText]);
+  }, [textState, diceText, coinText]);
 
   return (
     <div className="text-box">

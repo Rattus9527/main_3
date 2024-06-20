@@ -26,11 +26,13 @@ function GetItem({ itemState, showItem }) {
       <ul>
         <li>個人獎勵 -</li>
         {pCrystal > 0 && <li>未打磨的藍晶 x{pCrystal}</li>}
-        {pGold != 0 || pSliver != 0
-          ? `錢財 - ${pGold > 0 ? `${pGold}金` : ""} ${
-              pSliver > 0 ? `${pSliver}銀` : ""
-            }`
-          : ""}
+        <li>
+          {pGold != 0 || pSliver != 0
+            ? `錢財 - ${pGold > 0 ? `${pGold}金` : ""} ${
+                pSliver > 0 ? `${pSliver}銀` : ""
+              }`
+            : ""}
+        </li>
         {pItem.map((el, i) => (
           <li key={i}>{el}</li>
         ))}

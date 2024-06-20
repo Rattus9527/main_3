@@ -33,6 +33,7 @@ import Main18 from "./MainEvents/Main18";
 import Main18_2 from "./MainEvents/Main18_2";
 import Main19 from "./MainEvents/Main19";
 import Main20 from "./MainEvents/Main20";
+import End from "./MainEvents/End";
 //UI components
 import SideBtn from "./SideBtn";
 import LogArea from "./LogArea";
@@ -120,6 +121,7 @@ function MainScene({ windowState }) {
               <Route path="/18_2" element={<Main18_2 />} />
               <Route path="/19" element={<Main19 />} />
               <Route path="/20" element={<Main20 />} />
+              <Route path="/end" element={<End />} />
             </Routes>
           </HashRouter>
         </div>

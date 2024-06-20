@@ -58,6 +58,10 @@ function Main16_3() {
     scrollToBottom();
   }, [textState]);
 
+  const style = {
+    opacity: 0.7,
+  };
+
   return (
     <div className="text-box">
       <p className="text" onAnimationEnd={showText}>
@@ -96,7 +100,7 @@ function Main16_3() {
         <br />
         特殊骰 - 艾沫牽起了你們的手，獲得所有通道內的資訊。
       </p>
-      <p className={hintState ? "text" : "hidden"}>
+      <p className={hintState ? "text" : "hidden"} style={style}>
         你們肯定沒有全部的碎片，東缺一塊西缺一角的圖畫有些滑稽，你覺得這塊木板可能來自某個大型家具。
         <br />
         流暢的線條像是古老的壁畫圖騰，無數人型朝向中心成跪拜的姿勢，排列成一個漩渦的圖形，中心是一隻巨大的鯨魚。

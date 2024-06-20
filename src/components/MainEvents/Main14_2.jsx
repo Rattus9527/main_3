@@ -60,6 +60,31 @@ function Main14_2() {
     ),
   };
 
+  const itemData = {
+    shrimp: [
+      "[獲得獎勵]",
+      "每艘船獲得 -",
+      "未打磨的藍晶 x400",
+      "結晶化的眼球 x8",
+      "10銀",
+      "石化鯨礦 x5",
+      "刺脊長棍 x2",
+      "-",
+    ],
+    shrimpAngry: [
+      "[獲得獎勵]",
+      "每艘船獲得 -",
+      "未打磨的藍晶 x650",
+      "結晶化的眼球 x8",
+      "10銀",
+      "石化鯨礦 x5",
+      "刺脊長棍 x2",
+      "刺脊長棍 x2",
+      "閃爍藍光的堅硬甲殼 x4",
+      "-",
+    ],
+  };
+
   return (
     <div className="text-box">
       <p className={!battleState ? "text" : "hidden"}>
@@ -84,6 +109,7 @@ function Main14_2() {
         className={!battleState ? "btn main-btn" : "hidden"}
         onClick={() => {
           dispatch(addLog(data));
+          dispatch(addLog(itemData[monster]));
           navigate("/15");
         }}
       >

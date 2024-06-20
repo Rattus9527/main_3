@@ -5,7 +5,7 @@ import book from "/EP3/BoatScene/3-18-book.png";
 import chair from "/EP3/BoatScene/3-18-chair.png";
 import paint from "/EP3/BoatScene/3-18-paint.png";
 import bgShake from "/EP3/BoatScene/3-19-room.gif";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Book from "./Book";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -85,11 +85,21 @@ function BoatScene() {
   const [hintState, setHintState] = useState(false);
   const [bookState, showBook] = useState(false);
   const boatState = useSelector((state) => state.state.boatScene);
+  const ref = useRef();
   const dispatch = useDispatch();
 
   function showText() {
     setTextState((prev) => prev + 1);
   }
+
+  function scrollToBottom() {
+    if (ref.current) {
+      ref.current.scrollIntoView("smooth");
+    }
+  }
+  useEffect(() => {
+    scrollToBottom();
+  }, [textState, hintState]);
 
   return (
     <section className={boatState ? "boat-scene" : "hidden"}>
@@ -212,10 +222,7 @@ function BoatScene() {
             >
               牠將屋頂往旁一拋，大量的晶塊和肉團隨之飛落，砸落水面發出濕潤的噗砰聲，紅白交錯的生物組織從縫隙中擠出纏繞包覆著晶體，結晶再刺破血肉竄出，牠在每一步中崩解又再生，僅有眼睛一動不動地緊盯你們的身影，你對那道溢出藍光的視線有種詭譎的熟悉感，你肯定在哪裡見過。
             </p>
-            <p
-              className={textState > 7 ? "text" : "hidden"}
-              onAnimationEnd={showText}
-            >
+            <p className={textState > 7 ? "text" : "hidden"}>
               你無法靠渺小的人類軀殼和這樣的怪物戰鬥，請擲一個
               <span
                 className="hint"
@@ -237,7 +244,7 @@ function BoatScene() {
               <br />
               無筊－唉呦喂呀！你的屁屁跟地面來了個親密接觸，儘管你以最快的速度起身，仍舊耽誤了些時間，戰鬥開始的前兩回合無法行動。
             </p>
-            <p className={textState > 8 ? "text" : "hidden"}>
+            <p className={hintState && textState > 8 ? "text" : "hidden"}>
               <span
                 className="hint"
                 onClick={() => {
@@ -250,6 +257,7 @@ function BoatScene() {
                 ［進入戰鬥］
               </span>
             </p>
+            <div ref={ref}></div>
           </div>
         )}
         {bookState && <Book showBook={showBook} />}

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import btnImg from "/UI/btn_sen_normal.png";
 import { useDispatch } from "react-redux";
 import { addLog } from "../../../redux/logSlice/logSlice";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   "意識沉在朦朧的海中，在黑暗襲來的前一刻，巨大的拉力將靈魂和軀殼一同向下拉扯，你撿回了掙扎的方式。無法掙脫的水流抓住了四肢，你在窒息的黑暗裡墜落。",
@@ -16,6 +17,7 @@ function Main20() {
   const [textState, setTextState] = useState(0);
   const ref = useRef();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function scrollToBottom() {
     ref.current.scrollIntoView("smooth");
@@ -44,6 +46,7 @@ function Main20() {
         className={textState > 4 ? "btn main-btn" : "hidden"}
         onClick={() => {
           dispatch(addLog(dataLog));
+          navigate("/end");
         }}
       >
         <img src={btnImg} alt="" />
