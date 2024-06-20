@@ -20,10 +20,15 @@ const data = {
 function ShrimpType({ shrimpTypeState, showShrimpType }) {
   const dispatch = useDispatch();
 
+  const style = { opacity: 0.5, color: "#fff" };
+
   return (
     <section className={shrimpTypeState ? "crab-type" : "hidden"}>
       <p className="text">
         老問題，你有惹惱甲殼類海鮮嗎？
+        <span style={style}>
+          (※請自行設定是否有食用過，只要一位船員吃過即為有。)
+        </span>
         <br />
         <span
           className="hint"

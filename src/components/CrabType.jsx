@@ -21,6 +21,8 @@ const data = {
   ],
 };
 
+const style = { opacity: 0.5, color: "#fff" };
+
 function CrabType({ crabTypeState, showCrabType }) {
   const dispatch = useDispatch();
 
@@ -28,6 +30,10 @@ function CrabType({ crabTypeState, showCrabType }) {
     <section className={crabTypeState ? "crab-type" : "hidden"}>
       <p className="text">
         嘿、你們這次出航前有吃任何甲殼類料理嗎？比如龍鯊蝦拉什麼的。
+        <br />
+        <span style={style}>
+          (※請自行設定是否有食用過，只要一位船員吃過即為有。)
+        </span>
         <br />
         <span
           className="hint"
