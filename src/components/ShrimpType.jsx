@@ -26,6 +26,7 @@ function ShrimpType({ shrimpTypeState, showShrimpType }) {
     <section className={shrimpTypeState ? "crab-type" : "hidden"}>
       <p className="text">
         老問題，你有惹惱甲殼類海鮮嗎？
+        <br />
         <span style={style}>
           (※請自行設定是否有食用過，只要一位船員吃過即為有。)
         </span>

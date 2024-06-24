@@ -113,7 +113,7 @@ function Main18_2() {
           dispatch(addLog(item));
           dispatch(setPGold(1));
           dispatch(setPSliver(50));
-          dispatch(setPItem(["珠寶飾品(1銀/個) x10"]));
+          dispatch(setPItem(["珠寶飾品 x10", ""]));
           navigate("/19");
         }}
       >

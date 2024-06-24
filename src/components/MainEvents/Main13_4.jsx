@@ -8,8 +8,10 @@ import {
   setBronze,
   setCrystal,
   setItem,
-  setPCrystal,
+  setPBronze,
+  setPSliver,
   setSliver,
+  setUncrystal,
 } from "../../../redux/itemSlice/itemSlice";
 
 const data = [
@@ -21,9 +23,9 @@ const data = [
   "在這場小型流星雨的盡頭，你們看見了願望成真。",
   "一個[湛藍的寶箱]悠悠地漂了過來。",
   "每位船員獲得 -",
-  "未打磨的藍晶 x400",
-  "每艘船獲得 -",
   "18銀50銅",
+  "每艘船獲得 -",
+  "未打磨的藍晶 x400",
   "多功能維修套組 x3",
   "機械零件 x5",
   "[索羅爾群島仲裁者] 部件A x2",
@@ -46,11 +48,16 @@ function Main13_4() {
   }, [textState, hintState]);
 
   const item = [
-    "多功能維修套組(15銀/個) x3 - 1回合 能使用1次，並在該回合立即恢復 船隻耐久＋150。",
-    "機械零件(1銀/個) x5",
-    "[索羅爾群島仲裁者] 部件A(20銀/個) x2 - 需要製作圖紙。",
-    "-",
+    [
+      "多功能維修套組 x3 - ",
+      "1回合 能使用1次，並在該回合立即恢復 船隻耐久＋150。",
+    ],
+    ["機械零件 x5", ""],
+    ["[索羅爾群島仲裁者] 部件A x2 - ", "需要製作圖紙。"],
+    ["-", ""],
   ];
+
+  const style = { cursor: "pointer" };
 
   return (
     <div className="text-box">
@@ -97,6 +104,7 @@ function Main13_4() {
         一個
         <span
           className="crystal"
+          style={style}
           onClick={() => {
             setHintState(true);
           }}
@@ -107,10 +115,10 @@ function Main13_4() {
       </p>
       <p className={hintState ? "text" : "hidden"}>
         每位船員獲得 - <br />
-        未打磨的藍晶 x400
+        18銀50銅
         <br />
         每艘船獲得 -<br />
-        18銀50銅
+        未打磨的藍晶 x400
         <br />
         藍晶 x150
         <br />
@@ -126,10 +134,10 @@ function Main13_4() {
           dispatch(setImage(15));
           dispatch(setMainState("normal"));
           dispatch(addLog(data));
-          dispatch(setPCrystal(400));
+          dispatch(setUncrystal(400));
           dispatch(setCrystal(150));
-          dispatch(setSliver(18));
-          dispatch(setBronze(50));
+          dispatch(setPSliver(18));
+          dispatch(setPBronze(50));
           dispatch(setItem(item));
           navigate("/14");
         }}

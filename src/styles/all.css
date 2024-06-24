@@ -211,6 +211,7 @@ main {
   border: 0;
   background-color: #babe7c;
   cursor: pointer;
+  color: #2f2d22;
 }
 .btn p {
   position: absolute;

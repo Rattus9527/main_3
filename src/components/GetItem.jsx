@@ -13,6 +13,8 @@ function GetItem({ itemState, showItem }) {
   const pSliver = useSelector((state) => state.item.pSliver);
   const pItem = useSelector((state) => state.item.pItem);
 
+  const style = { color: "#babe7c", opacity: "0.5" };
+
   return (
     <div className={itemState ? "item" : "hidden"}>
       <button
@@ -46,8 +48,11 @@ function GetItem({ itemState, showItem }) {
           ${bronze > 0 ? `${bronze}銅` : ""}`
             : ""}
         </li>
-        {itemList.map((el, i) => (
-          <li key={i}>{el}</li>
+        {itemList.map((arr, i) => (
+          <li key={i}>
+            {arr[0]}
+            <span style={style}>{arr[1]}</span>
+          </li>
         ))}
       </ul>
     </div>

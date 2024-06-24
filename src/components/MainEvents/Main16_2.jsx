@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { setImage, setMainState } from "../../../redux/stateSlice/stateSlice";
 import { addLog } from "../../../redux/logSlice/logSlice";
 import {
-  setBronze,
   setCrystal,
   setItem,
-  setPCrystal,
-  setSliver,
+  setPBronze,
+  setPSliver,
+  setUncrystal,
 } from "../../../redux/itemSlice/itemSlice";
 
 const data = [
@@ -25,19 +25,22 @@ const data = [
   "-",
   "[古樸的箱子]",
   "每位船員獲得 -",
-  "未打磨的藍晶 x400",
-  "每艘船獲得 -",
   "18銀50銅",
+  "每艘船獲得 -",
+  "未打磨的藍晶 x400",
   "多功能維修套組 x3",
   "機械零件 x5",
   "藍晶 x150",
   "[索羅爾群島仲裁者] 部件B x2",
 ];
 const item = [
-  "多功能維修套組(15銀/個) x3 - 1回合 能使用1次，並在該回合立即恢復 船隻耐久＋150。",
-  "機械零件(1銀/個) x5",
-  "[索羅爾群島仲裁者] 部件B(20銀/個) x2 - 需要製作圖紙。",
-  "-",
+  [
+    "多功能維修套組 x3 - ",
+    "1回合 能使用1次，並在該回合立即恢復 船隻耐久＋150。",
+  ],
+  ["機械零件 x5", ""],
+  ["[索羅爾群島仲裁者] 部件B x2 - ", "需要製作圖紙。"],
+  ["-", ""],
 ];
 
 function Main16_2() {
@@ -145,9 +148,9 @@ function Main16_2() {
           dispatch(addLog(data));
           dispatch(setImage(16));
           dispatch(setMainState("normal"));
-          dispatch(setSliver(18));
-          dispatch(setBronze(50));
-          dispatch(setPCrystal(400));
+          dispatch(setPSliver(18));
+          dispatch(setPBronze(50));
+          dispatch(setUncrystal(400));
           dispatch(setCrystal(150));
           dispatch(setItem(item));
           navigate("/17");
