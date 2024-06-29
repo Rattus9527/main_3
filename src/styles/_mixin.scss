@@ -3,3 +3,8 @@
     @content;
   }
 }
+@mixin pad {
+  @media (max-width: 1115px) {
+    @content;
+  }
+}

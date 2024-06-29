@@ -14,6 +14,9 @@ function BloodScene({ showMain3Btn }) {
     display: "inline-block",
     color: "#fff",
   };
+  const style = {
+    opacity: 0.5,
+  };
   return (
     <section
       className={isShow ? "blood" : "hidden"}
@@ -44,6 +47,7 @@ function BloodScene({ showMain3Btn }) {
           <br />
           爆炸的力度讓船身不住擺盪，所有能從體內掏出的東西伴隨著震耳欲聾的聲響奮力噴發，為它們唯一的觀眾演示了生命最後的燦爛，漫天的血雨朝你們落下。
         </p>
+        <p style={style}>(點擊繼續)</p>
       </div>
     </section>
   );

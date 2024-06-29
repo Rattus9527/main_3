@@ -15,6 +15,8 @@ function GetItem({ itemState, showItem }) {
 
   const style = { color: "#babe7c", opacity: "0.5" };
 
+  const bold = { "font-weight": "700" };
+
   return (
     <div className={itemState ? "item" : "hidden"}>
       <button
@@ -26,7 +28,7 @@ function GetItem({ itemState, showItem }) {
         <img src={closeIcon} alt="" />
       </button>
       <ul>
-        <li>個人獎勵 -</li>
+        <li style={bold}>[個人獎勵]</li>
         {pCrystal > 0 && <li>未打磨的藍晶 x{pCrystal}</li>}
         <li>
           {pGold != 0 || pSliver != 0
@@ -38,7 +40,7 @@ function GetItem({ itemState, showItem }) {
         {pItem.map((el, i) => (
           <li key={i}>{el}</li>
         ))}
-        <li>船隊獎勵 -</li>
+        <li style={bold}>[船隊獎勵]</li>
         {crystal > 0 && <li>藍晶 x{crystal}</li>}
         {uncrystal > 0 && <li>未打磨的藍晶 x{uncrystal}</li>}
         <li>

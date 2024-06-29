@@ -89,6 +89,26 @@ main {
     margin: 20px 0;
     font-size: 1.1rem;
   }
+  @include pad {
+    display: flex;
+    flex-direction: column;
+    padding-top: 320px;
+    background-image: url("/UI/sen_normal_s.png");
+    background-position: bottom;
+  }
+}
+.img-small {
+  width: 450px;
+  img {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 450px;
+    @include pad {
+      display: block;
+    }
+  }
 }
 .text {
   display: block;
@@ -98,6 +118,9 @@ main {
   width: 370px;
   max-height: 520px;
   overflow-y: scroll;
+  @include pad {
+    max-height: 230px;
+  }
 }
 .text-box::-webkit-scrollbar {
   display: none;
@@ -128,6 +151,9 @@ main {
   max-width: 500px;
   img {
     width: 100%;
+  }
+  @include pad {
+    display: none;
   }
 }
 .btn-group {
@@ -219,6 +245,9 @@ main {
     display: block;
     width: 800px;
     color: #fff;
+    @include pad {
+      width: 600px;
+    }
   }
   span {
     color: #fff;
@@ -815,6 +844,9 @@ main {
   }
   .text-area {
     background-image: url("/UI/sen_BW_off.png");
+    @include pad {
+      background-image: url("/UI/sen_off_s.png");
+    }
   }
   .btn {
     background-color: $dark-bg;
@@ -827,6 +859,9 @@ main {
   }
   .text-area {
     background-image: url("/UI/sen_BW.png");
+    @include pad {
+      background-image: url("/UI/sen_BW_s.png");
+    }
   }
   .btn {
     background-color: #000;
@@ -837,7 +872,7 @@ main {
     color: #723030;
   }
   .text-area {
-    background-image: url("/UI/sen_blood.png");
+    background-image: url("/UI/sen_blood_s.png");
   }
 }
 .hidden {

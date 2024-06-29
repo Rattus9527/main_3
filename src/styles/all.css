@@ -236,6 +236,31 @@ main {
   margin: 20px 0;
   font-size: 1.1rem;
 }
+@media (max-width: 1115px) {
+  .text-area {
+    display: flex;
+    flex-direction: column;
+    padding-top: 320px;
+    background-image: url("/UI/sen_normal_s.png");
+    background-position: bottom;
+  }
+}
+
+.img-small {
+  width: 450px;
+}
+.img-small img {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 450px;
+}
+@media (max-width: 1115px) {
+  .img-small img {
+    display: block;
+  }
+}
 
 .text {
   display: block;
@@ -246,6 +271,11 @@ main {
   width: 370px;
   max-height: 520px;
   overflow-y: scroll;
+}
+@media (max-width: 1115px) {
+  .text-box {
+    max-height: 230px;
+  }
 }
 
 .text-box::-webkit-scrollbar {
@@ -281,6 +311,11 @@ main {
 }
 .img-area img {
   width: 100%;
+}
+@media (max-width: 1115px) {
+  .img-area {
+    display: none;
+  }
 }
 
 .btn-group {
@@ -378,6 +413,11 @@ main {
   display: block;
   width: 800px;
   color: #fff;
+}
+@media (max-width: 1115px) {
+  .blood p {
+    width: 600px;
+  }
 }
 .blood span {
   color: #fff;
@@ -988,6 +1028,11 @@ main {
 .dark-mode .text-area {
   background-image: url("/UI/sen_BW_off.png");
 }
+@media (max-width: 1115px) {
+  .dark-mode .text-area {
+    background-image: url("/UI/sen_off_s.png");
+  }
+}
 .dark-mode .btn {
   background-color: #19343a;
 }
@@ -1001,6 +1046,11 @@ main {
 .darker-mode .text-area {
   background-image: url("/UI/sen_BW.png");
 }
+@media (max-width: 1115px) {
+  .darker-mode .text-area {
+    background-image: url("/UI/sen_BW_s.png");
+  }
+}
 .darker-mode .btn {
   background-color: #000;
 }
@@ -1009,7 +1059,7 @@ main {
   color: #723030;
 }
 .blood-scene .text-area {
-  background-image: url("/UI/sen_blood.png");
+  background-image: url("/UI/sen_blood_s.png");
 }
 
 .hidden {

@@ -45,6 +45,7 @@ import CrabType from "./CrabType";
 import ShrimpType from "./ShrimpType";
 import BoatScene from "./BoatScene";
 import GetItem from "./GetItem";
+import ImgFrame from "./ImgFrame";
 
 function MainScene({ windowState }) {
   const mainState = useSelector((state) => state.state.main);
@@ -79,6 +80,7 @@ function MainScene({ windowState }) {
       <div className="container">
         <SideBtn showLog={showLog} showItem={showItem} />
         <div className="text-area">
+          <ImgFrame />
           <HashRouter basename="/">
             <Routes>
               <Route path="*" element={<Main1 />} />

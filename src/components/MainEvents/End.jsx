@@ -13,6 +13,8 @@ function End() {
   const pSliver = useSelector((state) => state.item.pSliver);
   const pItem = useSelector((state) => state.item.pItem);
 
+  const style = { opacity: 0.5 };
+
   return (
     <div className="text-box">
       <p className="text">
@@ -50,9 +52,10 @@ function End() {
         {sliver > 0 && `${sliver}銀`}
         {bronze > 0 && `${bronze}銅`}
         <br />
-        {itemList.map((el, i) => (
+        {itemList.map((el) => (
           <>
-            {el}
+            {el[0]}
+            <span style={style}>{el[1]}</span>
             <br />
           </>
         ))}

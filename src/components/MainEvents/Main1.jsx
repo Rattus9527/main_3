@@ -26,6 +26,7 @@ function Main1() {
   function scrollToBottom() {
     ref.current.scrollIntoView("smooth");
   }
+
   useEffect(() => {
     scrollToBottom();
   }, [showText]);
