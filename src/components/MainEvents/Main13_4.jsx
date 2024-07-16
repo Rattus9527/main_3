@@ -57,7 +57,7 @@ function Main13_4() {
     ["-", ""],
   ];
 
-  const style = { cursor: "pointer" };
+  const style = { "font-style": "oblique", cursor: "pointer" };
 
   return (
     <div className="text-box">
